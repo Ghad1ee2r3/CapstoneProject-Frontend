@@ -1,0 +1,13 @@
+// Authentication
+export const SET_CURRENT_USER = "SET_CURRENT_USER";
+
+//Errors
+export const SET_ERRORS = "SET_ERRORS";
+
+//Products
+export const SET_PRODUCTS = "SET_PRODUCTS";
+
+// Cart
+export const ADD_ITEM = "ADD_ITEM";
+export const CHECKOUT = "CHECKOUT";
+export const SET_CART = "SET_CART";
