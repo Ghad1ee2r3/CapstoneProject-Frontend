@@ -28,9 +28,9 @@ export const tabScreenOptions = ({ route }) => ({
         iconName = "account";
         break;
 
-      //   case "":
-      //     iconName = "home";
-      //     break;
+      case "Product":
+        iconName = "home";
+        break;
 
       default:
         iconName = "cart";

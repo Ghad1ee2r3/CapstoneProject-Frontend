@@ -2,9 +2,10 @@ import React from "react";
 import { connect } from "react-redux";
 import { Button, Text } from "native-base";
 import { logout } from "../../redux/actions";
-
+//styles
+import styles from "./styles";
 const LogoutButton = ({ user, logout }) => (
-  <Button full danger onPress={logout}>
+  <Button style={styles.logoutButton} onPress={logout}>
     <Text>Logout</Text>
   </Button>
 );

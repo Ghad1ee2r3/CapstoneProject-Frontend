@@ -13,14 +13,14 @@ const reducer = (state = initialState, action) => {
     case SET_CART:
       return initialState;
     case ADD_ITEM:
-      // check for exixting item to update qty only or add new item
+      // check for existing item to update quantity only or add new item
       let items;
       const existingItem = state.items.find(
         (item) => item.product.id === action.payload.product.id
       );
       if (existingItem) {
-        const newQty = existingItem.qty + action.payload.qty;
-        const newItem = { ...existingItem, qty: newQty };
+        const newQuantity = existingItem.quantity + action.payload.quantity;
+        const newItem = { ...existingItem, quantity: newQuantity };
         const updatedItems = state.items.filter(
           (item) => item.product.id !== existingItem.product.id
         );
@@ -30,7 +30,7 @@ const reducer = (state = initialState, action) => {
       }
       // update total, subtotal and tax
       const subtotal =
-        state.subtotal + action.payload.qty * action.payload.product.price;
+        state.subtotal + action.payload.quantity * action.payload.product.price;
       const tax = subtotal * 0.15;
       const total = subtotal + tax;
       const cart = {

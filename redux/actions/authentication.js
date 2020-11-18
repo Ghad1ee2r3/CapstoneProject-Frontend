@@ -5,12 +5,15 @@ import { SET_CURRENT_USER } from "./actionTypes";
 
 import instance from "./instance";
 
+import { fetchBills } from "../actions";
+
 const setCurrentUser = (token) => async (dispatch) => {
   await setAuthToken(token);
   dispatch({
     type: SET_CURRENT_USER,
     payload: token ? decode(token) : null,
   });
+  //dispatch(fetchBills());
 };
 
 const setAuthToken = async (token) => {

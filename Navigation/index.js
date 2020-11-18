@@ -3,11 +3,11 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 // Screens
 import UserStack from "./StackNavigators/UserStack";
-//import CartStack from "./StackNavigators/CartStack";
+import CartStack from "./StackNavigators/CartStack";
+import ScanStack from "./StackNavigators/ScanStack";
 
 const { Navigator, Screen } = createBottomTabNavigator();
 
-// Config
 import { tabBarOptions, tabScreenOptions } from "./options";
 
 export default function RootTabNavigator() {
@@ -18,7 +18,8 @@ export default function RootTabNavigator() {
       screenOptions={tabScreenOptions}
     >
       <Screen name="Profile" component={UserStack} />
-      {/* <Screen name="Cart" component={CartStack} /> */}
+      <Screen name="Product" component={ScanStack} />
+      <Screen name="Cart" component={CartStack} />
     </Navigator>
   );
 }

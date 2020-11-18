@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     paddingLeft: 60,
   },
   authOther: {
-    color: "rgb(105,79,61)",
+    color: "rgb(54,53,55)",
     marginTop: 15,
   },
   authTextInput: {
@@ -35,15 +35,15 @@ const styles = StyleSheet.create({
     textAlign: "left",
     height: 40,
     marginBottom: 30,
-    color: "rgb(105,79,61)",
-    borderBottomColor: "rgb(105,79,61)",
+    color: "rgb(54,53,55)",
+    borderBottomColor: "rgb(54,53,55)",
     borderBottomWidth: 1,
   },
   authTitle: {
-    color: "rgb(105,79,61)",
+    color: "rgb(54,53,55)",
     fontSize: 24,
     marginBottom: 20,
-    borderBottomColor: "rgb(105,79,61)",
+    borderBottomColor: "rgb(54,53,55)",
   },
   profileImage: {
     height: 75,
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
   },
   profiletext: {
     textAlign: "left",
-    color: "rgb(105,79,61)",
+    color: "rgb(54,53,55)",
     fontSize: 16,
   },
 });
