@@ -26,7 +26,9 @@ const Cart = ({ cart, navigation }) => {
                 {items.length ? (
                   <>
                     {itemCards}
-                    {/* <Button onPress={() => navigation.replace("CheckoutPage")}><Text>Proceed to checkout</Text></Button> */}
+                    <Button onPress={() => navigation.replace("CheckoutPage")}>
+                      <Text> checkout</Text>
+                    </Button>
                   </>
                 ) : (
                   <Text>Cart is empty</Text>

@@ -5,8 +5,8 @@ import { connect } from "react-redux";
 import Login from "../../Components/Authentication/Login";
 import Signup from "../../Components/Authentication/Signup";
 import Profile from "../../Components/Profile";
+import BillsList from "../../Components/BillsList";
 
-// Config
 import { stackScreenOptions } from "../options";
 
 const { Navigator, Screen } = createStackNavigator();
@@ -28,13 +28,14 @@ export default connect(mapStateToProps)(function UserStack({ user }) {
             component={Profile}
             options={{
               title: "Profile ",
-              headerTintColor: "white",
-              headerStyle: {
-                backgroundColor: "rgb(91,192,190)",
-              },
-              headerTitleStyle: {
-                fontWeight: "bold",
-              },
+            }}
+          />
+
+          <Screen
+            name="BillsList"
+            component={BillsList}
+            options={{
+              title: "Bills List ",
             }}
           />
         </>

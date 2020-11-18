@@ -11,3 +11,6 @@ export const SET_PRODUCTS = "SET_PRODUCTS";
 export const ADD_ITEM = "ADD_ITEM";
 export const CHECKOUT = "CHECKOUT";
 export const SET_CART = "SET_CART";
+
+//Bills
+export const SET_BILLS = "SET_BILLS";

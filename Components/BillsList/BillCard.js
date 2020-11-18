@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  Header,
   Content,
   Card,
   CardItem,
@@ -10,17 +9,19 @@ import {
   ListItem,
 } from "native-base";
 
-const ItemCard = ({ item }) => {
+const BillCard = ({ bill, navigation }) => {
   return (
-    <ListItem>
+    <ListItem
+    //   button
+    //   onPress={() => navigation.navigate("BillDetail", { bill })}
+    >
       <Content>
         <Card>
-          <Header />
           <CardItem header>
             <Left>
               <Body>
-                <Text>Name:{item.product.name}</Text>
-                <Text note>Quantity :{item.quantity}</Text>
+                <Text note>Date :{bill.created_date}</Text>
+                <Text note>Total:{bill.total}</Text>
               </Body>
             </Left>
           </CardItem>
@@ -30,4 +31,4 @@ const ItemCard = ({ item }) => {
   );
 };
 
-export default ItemCard;
+export default BillCard;
