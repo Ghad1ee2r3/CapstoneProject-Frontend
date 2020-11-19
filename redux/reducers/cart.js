@@ -14,6 +14,7 @@ const reducer = (state = initialState, action) => {
       return initialState;
     case ADD_ITEM:
       // check for existing item to update quantity only or add new item
+
       let items;
       const existingItem = state.items.find(
         (item) => item.product.id === action.payload.product.id

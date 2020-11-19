@@ -17,7 +17,9 @@ import { Image, ImageBackground, StyleSheet } from "react-native";
 import { addItemToCart } from "../../redux/actions";
 
 //when connect with backend will add ( products)
-const ProductDetail = ({ navigation, addItemToCart }) => {
+const ProductDetail = ({ route, navigation, addItemToCart }) => {
+  //let items = cart.items;
+  const { barcode } = route.params;
   let products = [
     {
       image:
@@ -25,12 +27,12 @@ const ProductDetail = ({ navigation, addItemToCart }) => {
       name: "p1",
       price: "50",
       description: "description product",
-      barcode: "456788",
+      barcode: barcode,
     },
   ];
-  let barcodeScan = "456788";
+
   //get product Which has the same entrance barcode
-  const product = products.find((item) => item.barcode === barcodeScan);
+  const product = products.find((item) => item.barcode === barcode);
   const [quantity, setQuantity] = useState(1);
 
   const [item, setItem] = useState({
@@ -39,6 +41,7 @@ const ProductDetail = ({ navigation, addItemToCart }) => {
   });
 
   const handlePress = () => {
+    //  if
     const newItem = { ...item, quantity: +quantity };
     addItemToCart(newItem);
   };
@@ -82,9 +85,10 @@ const ProductDetail = ({ navigation, addItemToCart }) => {
   );
 };
 
-const mapStateToProps = ({ products }) => ({
-  products,
-});
+// const mapStateToProps = ({ cart }) => ({
+//   // products,
+//   cart,
+// });
 const mapDispatchToProps = {
   addItemToCart,
 };

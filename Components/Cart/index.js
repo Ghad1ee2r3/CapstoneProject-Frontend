@@ -16,6 +16,12 @@ const Cart = ({ cart, navigation }) => {
   let items = cart.items;
   const itemCards = items.map((item) => <ItemCard key={item.id} item={item} />);
 
+  const handlecheack = () => {
+    // if (items.length() > 5) {
+    //   alert(`you can not add more than 5 item !`);
+    // } else {
+    navigation.replace("CheckoutPage");
+  };
   return (
     <Container>
       <Content>
@@ -26,7 +32,7 @@ const Cart = ({ cart, navigation }) => {
                 {items.length ? (
                   <>
                     {itemCards}
-                    <Button onPress={() => navigation.replace("CheckoutPage")}>
+                    <Button onPress={() => handlecheack()}>
                       <Text> checkout</Text>
                     </Button>
                   </>
