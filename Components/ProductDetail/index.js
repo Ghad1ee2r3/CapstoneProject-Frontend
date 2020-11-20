@@ -17,9 +17,15 @@ import { Image, ImageBackground, StyleSheet } from "react-native";
 import { addItemToCart } from "../../redux/actions";
 
 //when connect with backend will add ( products)
-const ProductDetail = ({ route, navigation, addItemToCart }) => {
-  //let items = cart.items;
+const ProductDetail = ({ route, navigation, addItemToCart, cart }) => {
+  let items = cart.items;
+
+  const [counter, setCounter] = useState(1);
   const { barcode } = route.params;
+  console.log("--------------------");
+  console.log(barcode);
+  console.log("--------------------");
+
   let products = [
     {
       image:
@@ -41,9 +47,18 @@ const ProductDetail = ({ route, navigation, addItemToCart }) => {
   });
 
   const handlePress = () => {
-    //  if
-    const newItem = { ...item, quantity: +quantity };
-    addItemToCart(newItem);
+    // in case add more than 5 item in first time
+    if (counter < 5 && quantity < 5) {
+      const newItem = { ...item, quantity: +quantity };
+      addItemToCart(newItem);
+      setCounter(counter + parseInt(quantity));
+      console.log("---------------qyt-----------");
+      console.log(quantity);
+      console.log("---------------counter-----------");
+      console.log(counter);
+    } else {
+      alert(`You can not add more than 5 item !`);
+    }
   };
 
   return (
@@ -85,13 +100,13 @@ const ProductDetail = ({ route, navigation, addItemToCart }) => {
   );
 };
 
-// const mapStateToProps = ({ cart }) => ({
-//   // products,
-//   cart,
-// });
+const mapStateToProps = ({ cart }) => ({
+  // products,
+  cart,
+});
 const mapDispatchToProps = {
   addItemToCart,
 };
 // when connect with backend
 //export default connect(mapStateToProps ,mapDispatchToProps)(ProductDetail);
-export default connect(null, mapDispatchToProps)(ProductDetail);
+export default connect(mapStateToProps, mapDispatchToProps)(ProductDetail);

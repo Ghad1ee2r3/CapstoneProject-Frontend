@@ -7,6 +7,9 @@ export const SET_ERRORS = "SET_ERRORS";
 //Products
 export const SET_PRODUCTS = "SET_PRODUCTS";
 
+//Stores
+export const SET_STORES = "SET_STORES";
+
 // Cart
 export const ADD_ITEM = "ADD_ITEM";
 export const CHECKOUT = "CHECKOUT";

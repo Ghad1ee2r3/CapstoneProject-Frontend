@@ -3,6 +3,8 @@ import { createStackNavigator } from "@react-navigation/stack";
 
 import ProductDetail from "../../Components/ProductDetail";
 
+import Store from "../../Components/Store";
+
 import ScanCamera from "../../Components/ScanCamera/Camera";
 
 import { stackScreenOptions } from "../options";
@@ -16,6 +18,21 @@ export default function ScanStack() {
       initialRouteName="ScanCamera"
       screenOptions={stackScreenOptions}
     >
+      <Screen
+        name="Store"
+        component={Store}
+        options={
+          (({ route }) => {
+            const { barcode } = route.params;
+            //console.log(barcode);
+            return {
+              barcode: barcode,
+            };
+          },
+          { title: "Store" })
+        }
+      />
+
       <Screen
         name="ProductDetail"
         component={ProductDetail}

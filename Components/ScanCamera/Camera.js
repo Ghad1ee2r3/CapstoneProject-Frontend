@@ -16,7 +16,9 @@ const Camera = ({ navigation }) => {
   const handleBarCodeScanned = ({ type, data }) => {
     setScanned(true);
     // alert(`Bar code with type ${type} and data ${data} has been scanned!`);
-    navigation.navigate("ProductDetail", { barcode: data });
+    // navigation.navigate("ProductDetail", { barcode: data });
+    navigation.navigate("Store", { barcode: data });
+
     setScanned(false);
   };
 
