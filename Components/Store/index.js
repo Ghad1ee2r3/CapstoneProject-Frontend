@@ -44,12 +44,14 @@ const Store = ({ route, navigation, stores }) => {
           <Button
             onPress={
               () =>
-                navigation.navigate("ScanCamera", { storeBarcode: storeobj?.uuid }) // storeobj.uuid or barcode
+                navigation.replace("ScanProduct", {
+                  storeBarcode: storeobj?.uuid,
+                }) // storeobj.uuid or barcode
             }
           >
             <Text>Yes</Text>
           </Button>
-          <Button onPress={() => navigation.navigate("ScanCamera")}>
+          <Button onPress={() => navigation.replace("ScanCamera")}>
             <Text>No</Text>
           </Button>
         </View>

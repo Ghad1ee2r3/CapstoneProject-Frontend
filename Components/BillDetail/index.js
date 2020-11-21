@@ -48,7 +48,7 @@
 //                 bill ID:{bill.id}
 //               </Text>
 
-//               <Text>Date: {bill.created_date}</Text>
+//               <Text>Date: {bill.date}</Text>
 
 //               <List>{orderItems}</List>
 //               <CardItem>

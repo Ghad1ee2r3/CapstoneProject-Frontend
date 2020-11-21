@@ -20,7 +20,7 @@ const Camera = ({ navigation, route }) => {
     // alert(`Bar code with type ${type} and data ${data} has been scanned!`);
     // navigation.navigate("ProductDetail", { barcode: data });
     navigation.navigate("ProductDetail", {
-      storeBarcode: barcode, //uuid of store
+      storeBarcode: storeBarcode, //uuid of store
       productBarcode: data, //barcode of product
     });
 

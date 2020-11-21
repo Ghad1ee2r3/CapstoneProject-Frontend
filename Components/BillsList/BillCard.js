@@ -13,7 +13,7 @@ const BillCard = ({ bill, navigation }) => {
   return (
     <ListItem
     //   button
-    //   onPress={() => navigation.navigate("BillDetail", { bill })}
+    //   onPress={() => navigation.navigate("BillDetail", { bill:bill })}
     >
       <Content>
         <Card>

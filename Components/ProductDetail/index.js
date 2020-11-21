@@ -24,32 +24,18 @@ const ProductDetail = ({
   product,
   getProduct,
 }) => {
-  let items = cart.items;
-  
+  //let items = cart.items;
+
   const { productBarcode } = route.params;
   const [counter, setCounter] = useState(1);
   const { storeBarcode } = route.params.storeBarcode;
 
-  // const x = storeBarcode.storeBarcode
   getProduct(productBarcode, storeBarcode);
   console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
   console.log("----------product----------");
   console.log(product);
   console.log("--------------------");
 
-  // let products = [
-  //   {
-  //     image:
-  //       "https://cdn.discordapp.com/attachments/772347432763523097/775650698125377546/h4-page-bg-img.jpg",
-  //     name: "p1",
-  //     price: "50",
-  //     description: "description product",
-  //     barcode: barcode,
-  //   },
-  // ];
-
-  //get product Which has the same entrance barcode
-  // const product = products.find((item) => item.barcode === productBarcode);
   const [quantity, setQuantity] = useState(1);
 
   const [item, setItem] = useState({
@@ -124,7 +110,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-// const mapDispatchToProps = {
-//   addItemToCart,
-// };
 export default connect(mapStateToProps, mapDispatchToProps)(ProductDetail);
