@@ -14,7 +14,6 @@ import {
 } from "native-base";
 import { Image, ImageBackground, StyleSheet } from "react-native";
 
-//when connect with backend will add ( products)
 const Store = ({ route, navigation, stores }) => {
   const { barcode } = route.params;
   console.log("--------------------");
@@ -27,7 +26,7 @@ const Store = ({ route, navigation, stores }) => {
 
   //get store Which has the same entrance barcode
   const storeobj = stores.find((item) => item.uuid === barcode);
-  console.log(storeobj.name);
+  // console.log(storeobj.name);
 
   return (
     <Container>
@@ -43,8 +42,9 @@ const Store = ({ route, navigation, stores }) => {
         </Card>
         <View>
           <Button
-            onPress={() =>
-              navigation.navigate("ProductDetail", { barcode: storeobj.uuid })
+            onPress={
+              () =>
+                navigation.navigate("ScanProduct", { barcode: storeobj?.uuid }) // storeobj.uuid or barcode
             }
           >
             <Text>Yes</Text>

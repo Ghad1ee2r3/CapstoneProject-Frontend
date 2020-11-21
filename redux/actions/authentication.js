@@ -13,7 +13,7 @@ const setCurrentUser = (token) => async (dispatch) => {
     type: SET_CURRENT_USER,
     payload: token ? decode(token) : null,
   });
-  //dispatch(fetchBills());
+  dispatch(fetchBills());
 };
 
 const setAuthToken = async (token) => {
