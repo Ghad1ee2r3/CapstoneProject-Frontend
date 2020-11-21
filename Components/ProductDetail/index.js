@@ -14,28 +14,40 @@ import {
 } from "native-base";
 import { Image, ImageBackground, StyleSheet } from "react-native";
 
-import { addItemToCart } from "../../redux/actions";
+import { addItemToCart, fetchProducts } from "../../redux/actions";
 
-//when connect with backend will add ( products)
-const ProductDetail = ({ route, navigation, addItemToCart, cart }) => {
+const ProductDetail = ({
+  route,
+  navigation,
+  addItemToCart,
+  cart,
+  products,
+  getProduct,
+}) => {
   let items = cart.items;
+  const { barcodeproduct } = route.params;
+  console.log("----------product----------");
+  console.log(products);
+  console.log("--------------------");
 
+  //const { barcode } = "b19bb54b-568f-41c4-92c2-b7cd30315fdb";
   const [counter, setCounter] = useState(1);
   const { barcode } = route.params;
-  console.log("--------------------");
-  console.log(barcode);
-  console.log("--------------------");
+  getProduct(barcodeproduct, barcode);
+  // console.log("--------------------");
+  // console.log(barcode);
+  // console.log("--------------------");
 
-  let products = [
-    {
-      image:
-        "https://cdn.discordapp.com/attachments/772347432763523097/775650698125377546/h4-page-bg-img.jpg",
-      name: "p1",
-      price: "50",
-      description: "description product",
-      barcode: barcode,
-    },
-  ];
+  // let products = [
+  //   {
+  //     image:
+  //       "https://cdn.discordapp.com/attachments/772347432763523097/775650698125377546/h4-page-bg-img.jpg",
+  //     name: "p1",
+  //     price: "50",
+  //     description: "description product",
+  //     barcode: barcode,
+  //   },
+  // ];
 
   //get product Which has the same entrance barcode
   const product = products.find((item) => item.barcode === barcode);
@@ -100,13 +112,20 @@ const ProductDetail = ({ route, navigation, addItemToCart, cart }) => {
   );
 };
 
-const mapStateToProps = ({ cart }) => ({
-  // products,
+const mapStateToProps = ({ cart, products }) => ({
+  products,
   cart,
 });
-const mapDispatchToProps = {
-  addItemToCart,
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getProduct: (barcodeproduct, barcode) =>
+      dispatch(fetchProducts(barcodeproduct, barcode)),
+    addItemToCart,
+  };
 };
-// when connect with backend
-//export default connect(mapStateToProps ,mapDispatchToProps)(ProductDetail);
+
+// const mapDispatchToProps = {
+//   addItemToCart,
+// };
 export default connect(mapStateToProps, mapDispatchToProps)(ProductDetail);

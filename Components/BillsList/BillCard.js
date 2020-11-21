@@ -20,8 +20,9 @@ const BillCard = ({ bill, navigation }) => {
           <CardItem header>
             <Left>
               <Body>
-                <Text note>Date :{bill.created_date}</Text>
-                <Text note>Total:{bill.total}</Text>
+                <Text note>MY bills</Text>
+                <Text note>Date :{bill.order}</Text>
+                <Text note>Total:{bill.id}</Text>
               </Body>
             </Left>
           </CardItem>
