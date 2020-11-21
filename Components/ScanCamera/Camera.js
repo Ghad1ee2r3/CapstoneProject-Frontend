@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Text, View, StyleSheet, Button, Dimensions, Alert } from "react-native";
 import { BarCodeScanner } from "expo-barcode-scanner";
+import { Camera } from 'expo-camera';
 
-const Camera = ({ navigation }) => {
+const MyCamera = ({ navigation }) => {
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
   const screenWidth = Dimensions.get("screen").width;
@@ -56,13 +57,14 @@ const Camera = ({ navigation }) => {
   }
   // console.log("");
   return (
-    <View style={{ backgroundColor: "red", width: "100%", height: "100%" }}>
-      <BarCodeScanner
-        style={{ position: "relative", flex: 1 }}
+    <View style={{ backgroundColor: "black", width: "100%", height: "100%" }}>
+      <Camera
         onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
+        ratio='16:9'
+        style={StyleSheet.absoluteFillObject}
       />
     </View>
   );
 };
 
-export default Camera;
+export default MyCamera;
