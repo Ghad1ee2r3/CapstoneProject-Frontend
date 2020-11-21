@@ -3,7 +3,7 @@ import { Text, View, StyleSheet, Button, Dimensions } from "react-native";
 import { BarCodeScanner } from "expo-barcode-scanner";
 
 const Camera = ({ navigation, route }) => {
-  const { barcode } = route.params; //uuid of store
+  const { storeBarcode } = route.params; //uuid of store
 
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
@@ -20,8 +20,8 @@ const Camera = ({ navigation, route }) => {
     // alert(`Bar code with type ${type} and data ${data} has been scanned!`);
     // navigation.navigate("ProductDetail", { barcode: data });
     navigation.navigate("ProductDetail", {
-      barcode: barcode, //uuid of store
-      barcodeproduct: data, //barcode of product
+      storeBarcode: barcode, //uuid of store
+      productBarcode: data, //barcode of product
     });
 
     //navigation.navigate("Store", { barcode: data });

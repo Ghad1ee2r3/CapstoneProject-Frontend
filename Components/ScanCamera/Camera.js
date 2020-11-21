@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Text, View, StyleSheet, Button, Dimensions } from "react-native";
+import { Text, View, Dimensions } from "react-native";
 import { BarCodeScanner } from "expo-barcode-scanner";
 
-const Camera = ({ navigation }) => {
+const Camera = ({ navigation, route }) => {
+  console.log(route.params);
+  const storeBarcode = route.params?.storeBarcode; //uuid of store
+
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
   const screenWidth = Dimensions.get("screen").width;
@@ -17,8 +20,13 @@ const Camera = ({ navigation }) => {
     setScanned(true);
     // alert(`Bar code with type ${type} and data ${data} has been scanned!`);
     // navigation.navigate("ProductDetail", { barcode: data });
-    navigation.navigate("Store", { barcode: data });
 
+    if (storeBarcode) {
+      navigation.replace("ProductDetail", { productBarcode: data, storeBarcode: storeBarcode });
+      setScanned(false);
+
+    }
+    navigation.replace("Store", { storeBarcode: data });
     setScanned(false);
   };
 

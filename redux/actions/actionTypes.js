@@ -5,7 +5,7 @@ export const SET_CURRENT_USER = "SET_CURRENT_USER";
 export const SET_ERRORS = "SET_ERRORS";
 
 //Products
-export const SET_PRODUCTS = "SET_PRODUCTS";
+export const SET_PRODUCT = "SET_PRODUCT";
 
 //Stores
 export const SET_STORES = "SET_STORES";

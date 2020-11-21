@@ -7,8 +7,6 @@ import Store from "../../Components/Store";
 
 import ScanCamera from "../../Components/ScanCamera/Camera";
 
-import ScanProduct from "../../Components/ScanProduct/Camera";
-
 import { stackScreenOptions } from "../options";
 
 const { Navigator, Screen } = createStackNavigator();
@@ -25,10 +23,10 @@ export default function ScanStack() {
         component={Store}
         options={
           (({ route }) => {
-            const { barcode } = route.params;
+            const { storeBarcode } = route.params;
             //console.log(barcode);
             return {
-              barcode: barcode,
+              storeBarcode: storeBarcode,
             };
           },
           { title: "Store" })
@@ -40,35 +38,35 @@ export default function ScanStack() {
         component={ProductDetail}
         options={
           (({ route }) => {
-            const { barcode } = route.params;
-            const { barcodeproduct } = route.params;
+            const { storeBarcode } = route.params;
+            const { productBarcode } = route.params;
             //console.log(barcode);
             return {
-              barcode: barcode,
-              barcodeproduct: barcodeproduct,
+              storeBarcode: storeBarcode,
+              productBarcode: productBarcode,
             };
           },
           { title: "Product" })
         }
       />
-      <Screen
+      {/* <Screen
         name="ScanCamera"
         component={ScanCamera}
         options={{ title: "ScanCamera" }}
-      />
+      /> */}
 
       <Screen
-        name="ScanProduct"
-        component={ScanProduct}
+        name="ScanCamera"
+        component={ScanCamera}
         options={
           (({ route }) => {
-            const { barcode } = route.params;
+            const { storeBarcode } = route.params;
             //console.log(barcode);
             return {
-              barcode: barcode,
+              storeBarcode: storeBarcode,
             };
           },
-          { title: "ScanProduct" })
+          { title: "ScanCamera" })
         }
       />
     </Navigator>
