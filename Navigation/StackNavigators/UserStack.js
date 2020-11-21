@@ -6,6 +6,7 @@ import Login from "../../Components/Authentication/Login";
 import Signup from "../../Components/Authentication/Signup";
 import Profile from "../../Components/Profile";
 import BillsList from "../../Components/BillsList";
+import BillDetail from "../../Components/BillDetail";
 
 import { stackScreenOptions } from "../options";
 
@@ -38,6 +39,17 @@ export default connect(mapStateToProps)(function UserStack({ user }) {
               title: "Bills List ",
             }}
           />
+
+          {/* <Screen
+            name="BillDetail"
+            component={BillDetail}
+            options={({ route }) => {
+              const { bill } = route.params;
+              return {
+                title: bill.id,
+              };
+            }}
+          /> */}
         </>
       ) : (
         <>
