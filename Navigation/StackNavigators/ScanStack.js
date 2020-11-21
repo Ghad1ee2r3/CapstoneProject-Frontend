@@ -5,7 +5,7 @@ import ProductDetail from "../../Components/ProductDetail";
 
 import Store from "../../Components/Store";
 
-import ScanCamera from "../../Components/ScanCamera/Camera";
+import ScanCamera from "../../Components/ScanCamera/";
 
 import ScanProduct from "../../Components/ScanProduct/Camera";
 
