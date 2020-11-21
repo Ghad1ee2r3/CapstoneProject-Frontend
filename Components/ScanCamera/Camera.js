@@ -4,8 +4,8 @@ import { BarCodeScanner } from "expo-barcode-scanner";
 import { Camera } from "expo-camera";
 
 const MyCamera = ({ navigation, route }) => {
-  console.log(route.params);
-  const storeBarcode = route.params?.storeBarcode; //uuid of store
+  //console.log(route.params);
+  // const storeBarcode = route.params?.storeBarcode; //uuid of store
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
   const screenWidth = Dimensions.get("screen").width;
@@ -42,7 +42,7 @@ const MyCamera = ({ navigation, route }) => {
       <Camera
         onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
         ratio="16:9"
-        style={StyleSheet.absoluteFillObject}
+        // style={StyleSheet.absoluteFillObject}
       />
     </View>
   );
