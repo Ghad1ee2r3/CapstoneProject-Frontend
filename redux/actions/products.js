@@ -1,18 +1,18 @@
-import { SET_PRODUCTS } from "./actionTypes";
+import { SET_PRODUCT } from "./actionTypes";
 
 import instance from "./instance";
-export const fetchProducts = (barcodeproduct, barcode) => async (dispatch) => {
+export const fetchProduct = (productBarcode, storeBarcode) => async (dispatch) => {
   try {
-    const res = await instance.get(`${barcode}/products/${barcodeproduct}/`);
-    const products = res.data;
+    const res = await instance.get(`${storeBarcode}/products/${productBarcode}/`);
+    const product = res.data;
     console.log("-------------from action------");
 
-    console.log(products);
+    console.log(product);
     console.log("-------------from action------");
 
     dispatch({
-      type: SET_PRODUCTS,
-      payload: products,
+      type: SET_PRODUCT,
+      payload: product,
     });
   } catch (error) {
     console.error(error);

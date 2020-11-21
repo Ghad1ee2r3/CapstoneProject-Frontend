@@ -14,29 +14,28 @@ import {
 } from "native-base";
 import { Image, ImageBackground, StyleSheet } from "react-native";
 
-import { addItemToCart, fetchProducts } from "../../redux/actions";
+import { addItemToCart, fetchProduct } from "../../redux/actions";
 
 const ProductDetail = ({
   route,
   navigation,
   addItemToCart,
   cart,
-  products,
+  product,
   getProduct,
 }) => {
   let items = cart.items;
-  const { barcodeproduct } = route.params;
-  console.log("----------product----------");
-  console.log(products);
-  console.log("--------------------");
-
-  //const { barcode } = "b19bb54b-568f-41c4-92c2-b7cd30315fdb";
+  
+  const { productBarcode } = route.params;
   const [counter, setCounter] = useState(1);
-  const { barcode } = route.params;
-  getProduct(barcodeproduct, barcode);
-  // console.log("--------------------");
-  // console.log(barcode);
-  // console.log("--------------------");
+  const { storeBarcode } = route.params.storeBarcode;
+
+  // const x = storeBarcode.storeBarcode
+  getProduct(productBarcode, storeBarcode);
+  console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+  console.log("----------product----------");
+  console.log(product);
+  console.log("--------------------");
 
   // let products = [
   //   {
@@ -50,7 +49,7 @@ const ProductDetail = ({
   // ];
 
   //get product Which has the same entrance barcode
-  const product = products.find((item) => item.barcode === barcode);
+  // const product = products.find((item) => item.barcode === productBarcode);
   const [quantity, setQuantity] = useState(1);
 
   const [item, setItem] = useState({
@@ -112,15 +111,15 @@ const ProductDetail = ({
   );
 };
 
-const mapStateToProps = ({ cart, products }) => ({
-  products,
+const mapStateToProps = ({ cart, product }) => ({
+  product,
   cart,
 });
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getProduct: (barcodeproduct, barcode) =>
-      dispatch(fetchProducts(barcodeproduct, barcode)),
+    getProduct: (productBarcode, storeBarcode) =>
+      dispatch(fetchProduct(productBarcode, storeBarcode)),
     addItemToCart,
   };
 };

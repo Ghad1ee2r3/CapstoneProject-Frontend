@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Text, View, StyleSheet, Button, Dimensions, Alert } from "react-native";
+import { Text, View, Dimensions } from "react-native";
 import { BarCodeScanner } from "expo-barcode-scanner";
 import { Camera } from 'expo-camera';
 
-const MyCamera = ({ navigation }) => {
+const MyCamera = ({ navigation, route }) => {
+
+  console.log(route.params);
+  const storeBarcode = route.params?.storeBarcode; //uuid of store
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
   const screenWidth = Dimensions.get("screen").width;
@@ -16,37 +19,16 @@ const MyCamera = ({ navigation }) => {
 
   const handleBarCodeScanned = ({ type, data }) => {
     setScanned(true);
-    // use type to only read spicified 
-    if (type === 256) {
-      // 256 means qr code
-      alert(`Store ${data}`);
-      Alert.alert(
-        'Are You In this Store ?',
-        `Store name should be here ${data}`,
-        [
-          {
-            text: 'No',
-            onPress: () => {
-              console.log('Cancel Pressed')
-              // navigate to the store select screen
-              setScanned(false);
-            },
-            style: 'cancel'
-          },
-          {
-            text: 'Yes', onPress: () => {
-              console.log('OK Pressed')
-              navigation.navigate("Store", { barcode: data });
-            }
-          }
-        ],
-        { cancelable: false }
-      );
-    } else {
-      alert(`Bar code with type ${type} and data ${data} has been scanned!`);
-      setScanned(false);
-    }
+    // alert(`Bar code with type ${type} and data ${data} has been scanned!`);
+    // navigation.navigate("ProductDetail", { barcode: data });
 
+    if (storeBarcode) {
+      navigation.replace("ProductDetail", { productBarcode: data, storeBarcode: storeBarcode });
+      setScanned(false);
+
+    }
+    navigation.replace("Store", { storeBarcode: data });
+    setScanned(false);
   };
 
   if (hasPermission === null) {
