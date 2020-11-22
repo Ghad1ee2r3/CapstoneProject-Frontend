@@ -26,7 +26,6 @@ export default function ScanStack() {
         options={
           (({ route }) => {
             const { storeBarcode } = route.params;
-            //console.log(barcode);
             return {
               storeBarcode: storeBarcode,
             };
@@ -42,7 +41,6 @@ export default function ScanStack() {
           (({ route }) => {
             const { storeBarcode } = route.params;
             const { productBarcode } = route.params;
-            //console.log(barcode);
             return {
               storeBarcode: storeBarcode,
               productBarcode: productBarcode,
@@ -63,7 +61,6 @@ export default function ScanStack() {
         options={
           (({ route }) => {
             const { storeBarcode } = route.params;
-            //console.log(barcode);
             return {
               storeBarcode: storeBarcode,
             };

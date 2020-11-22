@@ -26,7 +26,6 @@ const Store = ({ route, navigation, stores }) => {
 
   //get store Which has the same entrance barcode
   const storeobj = stores.find((item) => item.uuid === storeBarcode);
-  // console.log(storeobj.name);
 
   return (
     <Container>
@@ -46,7 +45,7 @@ const Store = ({ route, navigation, stores }) => {
               () =>
                 navigation.replace("ScanProduct", {
                   storeBarcode: storeBarcode,
-                }) // storeobj.uuid or barcode
+                }) // storeobj.uuid
             }
           >
             <Text>Yes</Text>

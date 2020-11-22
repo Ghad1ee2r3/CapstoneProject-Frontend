@@ -2,7 +2,6 @@ import React from "react";
 import { connect } from "react-redux";
 // components
 import BillCard from "./BillCard";
-//import { ImageBackground, View } from "react-native";
 
 import { List, Content } from "native-base";
 const BillsList = ({ navigation, bills }) => {
@@ -24,4 +23,3 @@ const mapStateToProps = ({ bills }) => ({
 });
 
 export default connect(mapStateToProps)(BillsList);
-//export default BillsList;

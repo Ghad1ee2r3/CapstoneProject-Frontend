@@ -20,12 +20,9 @@ const ProductDetail = ({
   route,
   navigation,
   addItemToCart,
-  cart,
   product,
   getProduct,
 }) => {
-  //let items = cart.items;
-
   const productBarcode = route.params.productBarcode;
   const storeBarcode = route.params.storeBarcode;
   const [counter, setCounter] = useState(1);
@@ -52,6 +49,7 @@ const ProductDetail = ({
     if (counter < 5 && quantity < 5) {
       const newItem = { ...item, quantity: +quantity };
       addItemToCart(newItem);
+      setItem(newItem);
       setCounter(counter + parseInt(quantity));
       console.log("---------------qyt-----------");
       console.log(quantity);
@@ -110,7 +108,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getProduct: (productBarcode, storeBarcode) =>
       dispatch(fetchProduct(productBarcode, storeBarcode)),
-    addItemToCart,
+    addItemToCart: (item) => dispatch(addItemToCart(item)),
   };
 };
 
