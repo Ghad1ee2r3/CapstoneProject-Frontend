@@ -5,6 +5,10 @@ import { BarCodeScanner } from "expo-barcode-scanner";
 const Camera = ({ navigation, route }) => {
   const { storeBarcode } = route.params; //uuid of store
 
+  console.log('***************************************');
+  console.log(storeBarcode);
+  console.log('***************************************');
+
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
   const screenWidth = Dimensions.get("screen").width;

@@ -15,10 +15,10 @@ import {
 import { Image, ImageBackground, StyleSheet } from "react-native";
 
 const Store = ({ route, navigation, stores }) => {
-  const { storeBarcode } = route.params;
-  // console.log("--------------------");
-  // console.log(barcode);
-  // console.log("--------------------");
+  const storeBarcode = route.params.storeBarcode;
+  console.log("--------------------******************");
+  console.log(storeBarcode);
+  console.log("--------------------******************");
 
   console.log("---------stores-----------");
   console.log(stores);
@@ -45,7 +45,7 @@ const Store = ({ route, navigation, stores }) => {
             onPress={
               () =>
                 navigation.replace("ScanProduct", {
-                  storeBarcode: storeobj?.uuid,
+                  storeBarcode: storeBarcode,
                 }) // storeobj.uuid or barcode
             }
           >

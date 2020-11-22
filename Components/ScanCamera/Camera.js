@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Text, View, Dimensions } from "react-native";
+import { Text, View, Dimensions, StyleSheet } from "react-native";
 import { BarCodeScanner } from "expo-barcode-scanner";
 import { Camera } from "expo-camera";
 
@@ -42,7 +42,7 @@ const MyCamera = ({ navigation, route }) => {
       <Camera
         onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
         ratio="16:9"
-        // style={StyleSheet.absoluteFillObject}
+        style={StyleSheet.absoluteFillObject}
       />
     </View>
   );

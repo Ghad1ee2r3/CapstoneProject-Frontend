@@ -26,14 +26,18 @@ const ProductDetail = ({
 }) => {
   //let items = cart.items;
 
-  const { productBarcode } = route.params;
+  const productBarcode = route.params.productBarcode;
+  const storeBarcode = route.params.storeBarcode;
   const [counter, setCounter] = useState(1);
-  const { storeBarcode } = route.params.storeBarcode;
 
   getProduct(productBarcode, storeBarcode);
   console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+  console.log("----------store----------");
+  console.log(storeBarcode);
+  console.log("--------------------");
+  console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
   console.log("----------product----------");
-  console.log(product);
+  console.log(productBarcode);
   console.log("--------------------");
 
   const [quantity, setQuantity] = useState(1);
