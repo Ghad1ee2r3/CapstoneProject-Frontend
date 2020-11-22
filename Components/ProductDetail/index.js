@@ -99,9 +99,8 @@ const ProductDetail = ({
   );
 };
 
-const mapStateToProps = ({ cart, product }) => ({
+const mapStateToProps = ({ product }) => ({
   product,
-  cart,
 });
 
 const mapDispatchToProps = (dispatch) => {
