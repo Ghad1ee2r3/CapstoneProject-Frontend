@@ -5,6 +5,10 @@ import { BarCodeScanner } from "expo-barcode-scanner";
 const Camera = ({ navigation, route }) => {
   const { storeBarcode } = route.params; //uuid of store
 
+  console.log("***************************************");
+  console.log(storeBarcode);
+  console.log("***************************************");
+
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
   const screenWidth = Dimensions.get("screen").width;
@@ -17,14 +21,11 @@ const Camera = ({ navigation, route }) => {
 
   const handleBarCodeScanned = ({ type, data }) => {
     setScanned(true);
-    // alert(`Bar code with type ${type} and data ${data} has been scanned!`);
-    // navigation.navigate("ProductDetail", { barcode: data });
-    navigation.navigate("ProductDetail", {
-      storeBarcode: barcode, //uuid of store
+
+    navigation.replace("ProductDetail", {
+      storeBarcode: storeBarcode, //uuid of store
       productBarcode: data, //barcode of product
     });
-
-    //navigation.navigate("Store", { barcode: data });
 
     setScanned(false);
   };

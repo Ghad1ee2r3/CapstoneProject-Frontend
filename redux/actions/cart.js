@@ -12,7 +12,7 @@ export const addItemToCart = (item) => ({
   payload: item,
 });
 
-export const checkoutCart = (cart) => ({
-  type: CHECKOUT,
-  payload: cart,
-});
+// export const checkoutCart = (cart) => ({
+//   type: CHECKOUT,
+//   payload: cart,
+// });

@@ -15,10 +15,10 @@ import {
 import { Image, ImageBackground, StyleSheet } from "react-native";
 
 const Store = ({ route, navigation, stores }) => {
-  const { storeBarcode } = route.params;
-  // console.log("--------------------");
-  // console.log(barcode);
-  // console.log("--------------------");
+  const storeBarcode = route.params.storeBarcode;
+  console.log("--------------------******************");
+  console.log(storeBarcode);
+  console.log("--------------------******************");
 
   console.log("---------stores-----------");
   console.log(stores);
@@ -26,7 +26,6 @@ const Store = ({ route, navigation, stores }) => {
 
   //get store Which has the same entrance barcode
   const storeobj = stores.find((item) => item.uuid === storeBarcode);
-  // console.log(storeobj.name);
 
   return (
     <Container>
@@ -44,12 +43,14 @@ const Store = ({ route, navigation, stores }) => {
           <Button
             onPress={
               () =>
-                navigation.navigate("ScanCamera", { storeBarcode: storeobj?.uuid }) // storeobj.uuid or barcode
+                navigation.replace("ScanProduct", {
+                  storeBarcode: storeBarcode,
+                }) // storeobj.uuid
             }
           >
             <Text>Yes</Text>
           </Button>
-          <Button onPress={() => navigation.navigate("ScanCamera")}>
+          <Button onPress={() => navigation.replace("ScanCamera")}>
             <Text>No</Text>
           </Button>
         </View>

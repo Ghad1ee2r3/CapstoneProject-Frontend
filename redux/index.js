@@ -4,7 +4,12 @@ import thunk from "redux-thunk";
 import rootReducer from "./reducers";
 
 // Actions
-import { checkForToken, fetchProduct, fetchStores } from "./actions";
+import {
+  checkForToken,
+  fetchProduct,
+  fetchBills,
+  fetchStores,
+} from "./actions";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -13,6 +18,8 @@ const store = createStore(
   composeEnhancers(applyMiddleware(thunk))
 );
 store.dispatch(fetchStores());
+//store.dispatch(fetchBills());
+
 // store.dispatch(fetchProduct());
 
 store.dispatch(checkForToken());

@@ -20,36 +20,23 @@ const ProductDetail = ({
   route,
   navigation,
   addItemToCart,
-  cart,
   product,
   getProduct,
 }) => {
-  let items = cart.items;
-  
-  const { productBarcode } = route.params;
+  const productBarcode = route.params.productBarcode;
+  const storeBarcode = route.params.storeBarcode;
   const [counter, setCounter] = useState(1);
-  const { storeBarcode } = route.params.storeBarcode;
 
-  // const x = storeBarcode.storeBarcode
   getProduct(productBarcode, storeBarcode);
   console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+  console.log("----------store----------");
+  console.log(storeBarcode);
+  console.log("--------------------");
+  console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
   console.log("----------product----------");
-  console.log(product);
+  console.log(productBarcode);
   console.log("--------------------");
 
-  // let products = [
-  //   {
-  //     image:
-  //       "https://cdn.discordapp.com/attachments/772347432763523097/775650698125377546/h4-page-bg-img.jpg",
-  //     name: "p1",
-  //     price: "50",
-  //     description: "description product",
-  //     barcode: barcode,
-  //   },
-  // ];
-
-  //get product Which has the same entrance barcode
-  // const product = products.find((item) => item.barcode === productBarcode);
   const [quantity, setQuantity] = useState(1);
 
   const [item, setItem] = useState({
@@ -62,6 +49,7 @@ const ProductDetail = ({
     if (counter < 5 && quantity < 5) {
       const newItem = { ...item, quantity: +quantity };
       addItemToCart(newItem);
+      setItem(newItem);
       setCounter(counter + parseInt(quantity));
       console.log("---------------qyt-----------");
       console.log(quantity);
@@ -111,20 +99,16 @@ const ProductDetail = ({
   );
 };
 
-const mapStateToProps = ({ cart, product }) => ({
+const mapStateToProps = ({ product }) => ({
   product,
-  cart,
 });
 
 const mapDispatchToProps = (dispatch) => {
   return {
     getProduct: (productBarcode, storeBarcode) =>
       dispatch(fetchProduct(productBarcode, storeBarcode)),
-    addItemToCart,
+    addItemToCart: (item) => dispatch(addItemToCart(item)),
   };
 };
 
-// const mapDispatchToProps = {
-//   addItemToCart,
-// };
 export default connect(mapStateToProps, mapDispatchToProps)(ProductDetail);

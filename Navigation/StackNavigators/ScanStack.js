@@ -5,7 +5,9 @@ import ProductDetail from "../../Components/ProductDetail";
 
 import Store from "../../Components/Store";
 
-import ScanCamera from "../../Components/ScanCamera/";
+import ScanCamera from "../../Components/ScanCamera/Camera";
+
+import ScanProduct from "../../Components/ScanProduct/Camera";
 
 import { stackScreenOptions } from "../options";
 
@@ -24,7 +26,6 @@ export default function ScanStack() {
         options={
           (({ route }) => {
             const { storeBarcode } = route.params;
-            //console.log(barcode);
             return {
               storeBarcode: storeBarcode,
             };
@@ -40,7 +41,6 @@ export default function ScanStack() {
           (({ route }) => {
             const { storeBarcode } = route.params;
             const { productBarcode } = route.params;
-            //console.log(barcode);
             return {
               storeBarcode: storeBarcode,
               productBarcode: productBarcode,
@@ -49,24 +49,23 @@ export default function ScanStack() {
           { title: "Product" })
         }
       />
-      {/* <Screen
-        name="ScanCamera"
-        component={ScanCamera}
-        options={{ title: "ScanCamera" }}
-      /> */}
-
       <Screen
         name="ScanCamera"
         component={ScanCamera}
+        options={{ title: "ScanCamera" }}
+      />
+
+      <Screen
+        name="ScanProduct"
+        component={ScanProduct}
         options={
           (({ route }) => {
             const { storeBarcode } = route.params;
-            //console.log(barcode);
             return {
               storeBarcode: storeBarcode,
             };
           },
-          { title: "ScanCamera" })
+          { title: "ScanProduct" })
         }
       />
     </Navigator>

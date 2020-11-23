@@ -40,7 +40,7 @@ export default connect(mapStateToProps)(function UserStack({ user }) {
             }}
           />
 
-          {/* <Screen
+          <Screen
             name="BillDetail"
             component={BillDetail}
             options={({ route }) => {
@@ -49,7 +49,7 @@ export default connect(mapStateToProps)(function UserStack({ user }) {
                 title: bill.id,
               };
             }}
-          /> */}
+          />
         </>
       ) : (
         <>

@@ -2,12 +2,12 @@ import React from "react";
 import { connect } from "react-redux";
 // components
 import BillCard from "./BillCard";
-//import { ImageBackground, View } from "react-native";
 
-import { List, Content } from "native-base";
+import { List, Content, Text } from "native-base";
 const BillsList = ({ navigation, bills }) => {
-  //let bills = [{ created_date: "10-11-2020", total: "50" }];
-
+  //let bills = [{ date: "10-11-2020", total: "50" }];
+  console.log("------bills--------------------");
+  console.log(bills);
   // send one item from list to display in card
   const billCards = bills.map((bill) => (
     <BillCard key={bill.id} bill={bill} navigation={navigation} />
@@ -15,6 +15,8 @@ const BillsList = ({ navigation, bills }) => {
 
   return (
     <Content>
+      <Text note>MY bills</Text>
+
       <List>{billCards}</List>
     </Content>
   );
@@ -24,4 +26,3 @@ const mapStateToProps = ({ bills }) => ({
 });
 
 export default connect(mapStateToProps)(BillsList);
-//export default BillsList;

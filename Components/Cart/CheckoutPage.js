@@ -18,9 +18,9 @@ const CheckoutPage = ({ cart, navigation }) => {
           <CardItem header>
             <Left>
               <Body>
-                <Text>Total: {cart.total}</Text>
                 <Text>Subtotal: {cart.subtotal}</Text>
                 <Text>Tax: {cart.tax}</Text>
+                <Text>Total: {cart.total}</Text>
               </Body>
             </Left>
           </CardItem>

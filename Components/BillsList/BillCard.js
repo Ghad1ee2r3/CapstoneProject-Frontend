@@ -12,17 +12,17 @@ import {
 const BillCard = ({ bill, navigation }) => {
   return (
     <ListItem
-    //   button
-    //   onPress={() => navigation.navigate("BillDetail", { bill })}
+      button
+      onPress={() => navigation.navigate("BillDetail", { bill: bill })}
     >
       <Content>
         <Card>
           <CardItem header>
             <Left>
               <Body>
-                <Text note>MY bills</Text>
-                <Text note>Date :{bill.order}</Text>
-                <Text note>Total:{bill.id}</Text>
+                <Text note>ID :{bill.id}</Text>
+                <Text note>Total:{bill.total}</Text>
+                <Text note>Tax:{bill.tax}</Text>
               </Body>
             </Left>
           </CardItem>
