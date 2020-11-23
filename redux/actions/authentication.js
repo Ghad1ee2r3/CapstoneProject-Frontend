@@ -19,7 +19,7 @@ const setCurrentUser = (token) => async (dispatch) => {
 const setAuthToken = async (token) => {
   if (token) {
     await AsyncStorage.setItem("token", token);
-    instance.defaults.headers.Authorization = `Bearer ${token}`;
+    instance.defaults.headers.Authorization = `JWT ${token}`;
   } else {
     delete instance.defaults.headers.Authorization;
     await AsyncStorage.removeItem("token");

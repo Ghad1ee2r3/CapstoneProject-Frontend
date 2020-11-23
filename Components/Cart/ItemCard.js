@@ -16,7 +16,7 @@ const ItemCard = ({ item }) => {
       <Content>
         <Card>
           <Header />
-          <CardItem header>
+          <CardItem>
             <Left>
               <Body>
                 <Text>Name:{item.product.name}</Text>
