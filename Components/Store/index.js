@@ -16,11 +16,13 @@ import { Image, ImageBackground, StyleSheet } from "react-native";
 
 const Store = ({ route, navigation, stores }) => {
   const storeBarcode = route.params.storeBarcode;
-  console.log("--------------------******************");
+  console.log(
+    "-------------store component storeBarcode-------******************"
+  );
   console.log(storeBarcode);
   console.log("--------------------******************");
 
-  console.log("---------stores-----------");
+  console.log("---------stores_component_-----------");
   console.log(stores);
   console.log("--------------------");
 
