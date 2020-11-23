@@ -1,11 +1,8 @@
 import { SET_BILLS, ADD_BILL } from "./actionTypes";
 import instance from "./instance";
-import axios from "axios";
 
 export const fetchBills = () => async (dispatch) => {
   try {
-    console.log("fetchbill---------------");
-
     const res = await instance.get("orders/");
     const bills = res.data;
 

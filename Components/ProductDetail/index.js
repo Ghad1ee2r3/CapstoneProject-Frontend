@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import {
   Button,
@@ -27,7 +27,9 @@ const ProductDetail = ({
   const storeBarcode = route.params.storeBarcode;
   const [counter, setCounter] = useState(1);
 
-  getProduct(productBarcode, storeBarcode);
+  useEffect(() => {
+    getProduct(productBarcode, storeBarcode);
+  }, []);
 
   const [quantity, setQuantity] = useState(1);
 
