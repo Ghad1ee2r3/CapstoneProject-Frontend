@@ -11,7 +11,6 @@ import {
   Container,
   Thumbnail,
 } from "native-base";
-import { ImageBackground, View } from "react-native";
 
 import { Image, StyleSheet } from "react-native";
 

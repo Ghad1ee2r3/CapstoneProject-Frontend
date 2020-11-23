@@ -12,9 +12,16 @@ import {
   Button,
 } from "native-base";
 
-const Cart = ({ cart, navigation }) => {
+import { postBill } from "../../redux/actions";
+
+const Cart = ({ cart, navigation, postBill }) => {
   let items = cart.items;
   const itemCards = items.map((item) => <ItemCard key={item.id} item={item} />);
+
+  const handleCheckout = () => {
+    postBill(cart);
+    navigation.replace("CheckoutPage");
+  };
 
   return (
     <Container>
@@ -26,9 +33,13 @@ const Cart = ({ cart, navigation }) => {
                 {items.length ? (
                   <>
                     {itemCards}
-                    <Button onPress={() => navigation.replace("CheckoutPage")}>
+                    <Button onPress={() => handleCheckout()}>
                       <Text> checkout</Text>
                     </Button>
+
+                    {/* <Button onPress={() => navigation.replace("CheckoutPage")}>
+                      <Text> checkout</Text>
+                    </Button> */}
                   </>
                 ) : (
                   <Text>Cart is empty</Text>
@@ -54,4 +65,10 @@ const mapStateToProps = ({ cart }) => ({
   cart,
 });
 
-export default connect(mapStateToProps)(Cart);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    postBill: (cart) => dispatch(postBill(cart)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Cart);

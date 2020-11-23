@@ -22,7 +22,7 @@ const Camera = ({ navigation, route }) => {
   const handleBarCodeScanned = ({ type, data }) => {
     setScanned(true);
 
-    navigation.navigate("ProductDetail", {
+    navigation.replace("ProductDetail", {
       storeBarcode: storeBarcode, //uuid of store
       productBarcode: data, //barcode of product
     });
