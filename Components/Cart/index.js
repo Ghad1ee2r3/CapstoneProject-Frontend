@@ -18,8 +18,28 @@ const Cart = ({ cart, navigation, postBill }) => {
   let items = cart.items;
   const itemCards = items.map((item) => <ItemCard key={item.id} item={item} />);
 
+  const itemsCart = items.map((item) => ({
+    storeproduct: item.product.id,
+    qty: item.quantity,
+  }));
+  const storeBarcode = items.map((item) => item.storeBarcode)[0];
+  //let itemscart=[];storeBarcode
+  // [{ storeproduct: item.product.id, qty: item.quantity }]
+  //console.log(itemscart)
+  let bill = {
+    total: cart.total,
+    tax: cart.tax,
+    store: storeBarcode, //from linke store by barcode
+    items: itemsCart,
+  };
   const handleCheckout = () => {
-    postBill(cart);
+    // cart ={ items: [  product: product,
+    //   quantity: 0,,
+    // ],
+    //   subtotal: 0,
+    //   total: 0,
+    //   tax: 0,}
+    postBill(bill);
     navigation.replace("CheckoutPage");
   };
 

@@ -42,7 +42,12 @@ const ProductDetail = ({
   const [item, setItem] = useState({
     product: product,
     quantity: 0,
+    storeBarcode: storeBarcode, //change
   });
+  console.log("-----------product detail barcode item----------");
+
+  console.log(item);
+  console.log("-----------product detail barcode item----------");
 
   const handlePress = () => {
     // in case add more than 5 item in first time
