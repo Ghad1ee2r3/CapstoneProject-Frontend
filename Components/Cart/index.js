@@ -87,7 +87,7 @@ const mapStateToProps = ({ cart }) => ({
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    postBill: (cart) => dispatch(postBill(cart)),
+    postBill: (bill) => dispatch(postBill(bill)),
   };
 };
 
