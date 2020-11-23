@@ -8,8 +8,6 @@ export const fetchBills = () => async (dispatch) => {
 
     const res = await instance.get("orders/");
     const bills = res.data;
-    console.log("--------bills action-----");
-    console.log(bills);
 
     dispatch({
       type: SET_BILLS,

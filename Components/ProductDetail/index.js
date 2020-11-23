@@ -28,26 +28,14 @@ const ProductDetail = ({
   const [counter, setCounter] = useState(1);
 
   getProduct(productBarcode, storeBarcode);
-  console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-  console.log("----------store----------");
-  console.log(storeBarcode);
-  console.log("--------------------");
-  console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-  console.log("----------product----------");
-  console.log(productBarcode);
-  console.log("--------------------");
 
   const [quantity, setQuantity] = useState(1);
 
   const [item, setItem] = useState({
     product: product,
     quantity: 0,
-    storeBarcode: storeBarcode, //change
+    storeBarcode: storeBarcode,
   });
-  console.log("-----------product detail barcode item----------");
-
-  console.log(item);
-  console.log("-----------product detail barcode item----------");
 
   const handlePress = () => {
     // in case add more than 5 item in first time
@@ -56,10 +44,6 @@ const ProductDetail = ({
       addItemToCart(newItem);
       setItem(newItem);
       setCounter(counter + parseInt(quantity));
-      console.log("---------------qyt-----------");
-      console.log(quantity);
-      console.log("---------------counter-----------");
-      console.log(counter);
     } else {
       alert(`You can not add more than 5 item !`);
     }

@@ -22,23 +22,17 @@ const Cart = ({ cart, navigation, postBill }) => {
     storeproduct: item.product.id,
     qty: item.quantity,
   }));
+  //return storeBarcode (from URL take store Barcode then save inside items of  cart)
   const storeBarcode = items.map((item) => item.storeBarcode)[0];
-  //let itemscart=[];storeBarcode
-  // [{ storeproduct: item.product.id, qty: item.quantity }]
-  //console.log(itemscart)
+
   let bill = {
     total: cart.total,
     tax: cart.tax,
-    store: storeBarcode, //from linke store by barcode
+    store: storeBarcode,
     items: itemsCart,
   };
+
   const handleCheckout = () => {
-    // cart ={ items: [  product: product,
-    //   quantity: 0,,
-    // ],
-    //   subtotal: 0,
-    //   total: 0,
-    //   tax: 0,}
     postBill(bill);
     navigation.replace("CheckoutPage");
   };
@@ -56,10 +50,6 @@ const Cart = ({ cart, navigation, postBill }) => {
                     <Button onPress={() => handleCheckout()}>
                       <Text> checkout</Text>
                     </Button>
-
-                    {/* <Button onPress={() => navigation.replace("CheckoutPage")}>
-                      <Text> checkout</Text>
-                    </Button> */}
                   </>
                 ) : (
                   <Text>Cart is empty</Text>

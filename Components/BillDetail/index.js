@@ -1,16 +1,5 @@
 import React from "react";
-import {
-  List,
-  Text,
-  Left,
-  Right,
-  Body,
-  Content,
-  Card,
-  CardItem,
-  Container,
-  Thumbnail,
-} from "native-base";
+import { List, Text, Left, Body, Content, Card, CardItem } from "native-base";
 
 import { Image, StyleSheet } from "react-native";
 
