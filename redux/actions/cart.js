@@ -11,8 +11,3 @@ export const addItemToCart = (item) => ({
   type: ADD_ITEM,
   payload: item,
 });
-
-// export const checkoutCart = (cart) => ({
-//   type: CHECKOUT,
-//   payload: cart,
-// });
