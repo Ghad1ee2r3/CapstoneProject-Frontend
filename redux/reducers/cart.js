@@ -30,9 +30,7 @@ const reducer = (state = initialState, action) => {
         items = [...state.items, action.payload];
       }
       // update total, subtotal and tax
-      console.log("------action.payload.quantity-----");
-      console.log(action.payload.quantity);
-      console.log("------action.payload.quantity-----");
+
       const subtotal =
         state.subtotal + action.payload.quantity * action.payload.product.price;
 

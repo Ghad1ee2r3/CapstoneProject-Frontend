@@ -18,9 +18,6 @@ const store = createStore(
   composeEnhancers(applyMiddleware(thunk))
 );
 store.dispatch(fetchStores());
-//store.dispatch(fetchBills());
-
-// store.dispatch(fetchProduct());
 
 store.dispatch(checkForToken());
 
