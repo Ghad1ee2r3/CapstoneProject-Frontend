@@ -42,7 +42,7 @@ const ProductDetail = ({
   const handlePress = () => {
     // in case add more than 5 item in first time
     if (counter < 5 && quantity < 5) {
-      const newItem = { ...item, quantity: +quantity };
+      const newItem = { ...item, quantity: +quantity, product: product };
       addItemToCart(newItem);
       setItem(newItem);
       setCounter(counter + parseInt(quantity));
