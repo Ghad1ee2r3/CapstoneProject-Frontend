@@ -8,6 +8,7 @@ import Store from "../../Components/Store";
 import ScanCamera from "../../Components/ScanCamera/Camera";
 
 import ScanProduct from "../../Components/ScanProduct/Camera";
+import { Button, Text } from "native-base";
 
 import { stackScreenOptions } from "../options";
 
@@ -38,7 +39,7 @@ export default function ScanStack() {
         name="ProductDetail"
         component={ProductDetail}
         options={
-          (({ route }) => {
+          (({ route, navigation }) => {
             const { storeBarcode } = route.params;
             const { productBarcode } = route.params;
             return {
