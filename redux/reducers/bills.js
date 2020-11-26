@@ -10,7 +10,8 @@ const reducer = (state = initialState, action) => {
       return bills;
 
     case ADD_BILL:
-      return [...state, action.payload];
+      const bill = [...state, action.payload];
+      return bill;
 
     default:
       return state;

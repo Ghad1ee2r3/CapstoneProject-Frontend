@@ -12,21 +12,16 @@ import {
 
 const ItemCard = ({ item }) => {
   return (
-    <ListItem>
-      <Content>
-        <Card>
-          <Header />
-          <CardItem>
-            <Left>
-              <Body>
-                <Text>Name:{item.product.name}</Text>
-                <Text note>Quantity :{item.quantity}</Text>
-              </Body>
-            </Left>
-          </CardItem>
-        </Card>
-      </Content>
-    </ListItem>
+    <Card key={item.barcode}>
+      <CardItem>
+        <Left>
+          <Body>
+            <Text>Name:{item.product.name}</Text>
+            <Text note>Quantity :{item.quantity}</Text>
+          </Body>
+        </Left>
+      </CardItem>
+    </Card>
   );
 };
 
