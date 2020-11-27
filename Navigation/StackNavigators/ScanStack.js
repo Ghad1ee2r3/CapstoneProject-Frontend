@@ -8,7 +8,10 @@ import Store from "../../Components/Store";
 import ScanCamera from "../../Components/ScanCamera/Camera";
 
 import ScanProduct from "../../Components/ScanProduct/Camera";
+import ProductNotfound from "../../Components/ProductNotfound";
 import { Button, Text } from "native-base";
+import Icon from "react-native-vector-icons/Feather";
+import { useNavigation } from "@react-navigation/native";
 
 import { stackScreenOptions } from "../options";
 
@@ -48,6 +51,30 @@ export default function ScanStack() {
             };
           },
           { title: "Product" })
+          // ({ route, navigation }) => ({
+          //   headerLeft: ({ navigation }) => (
+          //     <Icon
+          //       onPress={({ navigation }) => navigation.push("ScanProduct")}
+          //       color="#fff"
+          //       name="arrow-left"
+          //       size={26}
+          //       color="black"
+          //     />
+          //   ),
+          // })
+        }
+      />
+      <Screen
+        name="ProductNotfound"
+        component={ProductNotfound}
+        options={
+          (({ route, navigation }) => {
+            const { storeBarcode } = route.params;
+            return {
+              storeBarcode: storeBarcode,
+            };
+          },
+          { title: "ProductNotfound" })
         }
       />
       <Screen

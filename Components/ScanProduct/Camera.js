@@ -18,10 +18,14 @@ const Camera = ({ navigation, route }) => {
   const handleBarCodeScanned = ({ type, data }) => {
     setScanned(true);
 
-    navigation.replace("ProductDetail", {
-      storeBarcode: storeBarcode, //uuid of store
-      productBarcode: data, //barcode of product
-    });
+    if (data) {
+      navigation.navigate("ProductDetail", {
+        storeBarcode: storeBarcode, //uuid of store
+        productBarcode: data, //barcode of product
+      });
+    } else {
+      navigation.replace("ProductNotfound", { storeBarcode: storeBarcode });
+    }
 
     setScanned(false);
   };

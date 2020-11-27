@@ -21,11 +21,21 @@ const ProductDetail = ({
   navigation,
   addItemToCart,
   product,
+  cart,
   getProduct,
 }) => {
   const productBarcode = route.params.productBarcode;
   const storeBarcode = route.params.storeBarcode;
   const [counter, setCounter] = useState(1);
+  let numberofitem = cart.items.map((item) => +item.quantity)[0];
+  let countitemuser;
+  if (numberofitem > 0) {
+    countitemuser = numberofitem;
+  } else {
+    countitemuser = 0;
+  }
+  console.log("numberofitem");
+  console.log(numberofitem);
 
   useEffect(() => {
     getProduct(productBarcode, storeBarcode);
@@ -41,11 +51,12 @@ const ProductDetail = ({
 
   const handlePress = () => {
     // in case add more than 5 item in first time
-    if (counter < 5 && quantity < 5) {
+    if (counter < 4 && quantity < 4 && countitemuser < 4) {
       const newItem = { ...item, quantity: +quantity, product: product };
       addItemToCart(newItem);
       setItem(newItem);
       setCounter(counter + parseInt(quantity));
+      alert(`Product added successfully `);
     } else {
       alert(`You can not add more than 5 item !`);
     }
@@ -90,8 +101,9 @@ const ProductDetail = ({
   );
 };
 
-const mapStateToProps = ({ product }) => ({
+const mapStateToProps = ({ product, cart }) => ({
   product,
+  cart,
 });
 
 const mapDispatchToProps = (dispatch) => {
