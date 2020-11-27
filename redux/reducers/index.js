@@ -16,6 +16,7 @@ const rootReducer = combineReducers({
   cart: userCart,
   bills: billsReducer,
   paymentLink: paymentReducer,
+  bill: billsReducer,
 });
 
 export default rootReducer;

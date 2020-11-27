@@ -10,20 +10,36 @@ import { StyleSheet } from "react-native";
 import { connect } from "react-redux";
 import { fetchPaymentLink } from "../../redux/actions";
 
-const Payment = ({ getPaymentLink, route, bills, paymentLink }) => {
+const Payment = ({ navigation, getPaymentLink, route, bills, paymentLink }) => {
 
     // const orderNumber = route.params.orderNumber;
     const orderNumber = bills[(bills.length) - 1].number
     const [link, setLink] = useState('')
+
     useEffect(() => {
-        getPaymentLink(orderNumber)
+        setLink(getPaymentLink(orderNumber))
     }, [])
-    console.log('---------now we are here');
-    console.log(paymentLink.url);
-    console.log('---------there should be alink');
+    const handleWebViewNavigationStateChange = (newNavState) => {
+        let url = newNavState.url;
+        console.log(url);
+        if (!url) return;
+
+        if (url.includes('thankyou')) {
+            webref.stopLoading();
+            console.log("------------------");
+            console.log("I STOPED!");
+            console.log("------------------");
+            navigation.navigate("Profile")
+            // maybe close this view?
+        }
+    }
+
 
     return (
-        <WebView source={{ uri: `${paymentLink.url}` }} style={{ marginTop: 0 }} />
+        <WebView source={{ uri: `${paymentLink.url}` }} style={{ marginTop: 0 }}
+            ref={r => (webref = r)}
+            onNavigationStateChange={handleWebViewNavigationStateChange.bind(this)}
+        />
     );
 }
 
