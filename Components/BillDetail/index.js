@@ -5,8 +5,8 @@ import { Image, StyleSheet } from "react-native";
 
 const BillDetail = ({ route }) => {
   const { bill } = route.params;
-  let totaltax = bill.total * 0.15;
-  totaltax = totaltax + parseInt(bill.total);
+  // let totaltax = bill.total * 0.15;
+  // totaltax = totaltax + parseInt(bill.total);
 
   const orderItems = bill.items.map((item) => (
     <>
@@ -48,9 +48,10 @@ const BillDetail = ({ route }) => {
                   >
                     summury
                   </Text>
-                  <Text footer>Total: {bill.total}</Text>
                   <Text footer>tax: 15%</Text>
-                  <Text footer>Total after tax: {totaltax}</Text>
+                  <Text footer>Total: {bill.total}</Text>
+
+                  {/* <Text footer>Total after tax: {totaltax}</Text> */}
                 </Body>
               </CardItem>
             </Body>
