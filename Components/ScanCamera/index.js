@@ -1,20 +1,20 @@
 import React, { useRef, useEffect } from "react";
 import { Animated, StyleSheet, View } from "react-native";
-import Camera from "./Camera";
+import QrCamera from "./Camera";
 import Frame from "./Frame";
 
-const ScanCamera = () => {
+const StoreCamera = () => {
   // the laser inimation and the loop effect
 
   return (
     <>
-      <Camera />
+      <QrCamera />
       <View style={{
-        position:"absolute",
-        left:0,
-        right:0,
-        top:0,
-        bottom:0
+        position: "absolute",
+        left: 0,
+        right: 0,
+        top: 0,
+        bottom: 0
       }}>
         <Frame />
       </View>
@@ -22,4 +22,4 @@ const ScanCamera = () => {
   );
 };
 
-export default ScanCamera;
+export default StoreCamera;

@@ -9,19 +9,17 @@ const BillDetail = ({ route }) => {
   // totaltax = totaltax + parseInt(bill.total);
 
   const orderItems = bill.items.map((item) => (
-    <>
-      <Card transparent style={{ flex: 0 }}>
-        <CardItem header>
-          <Left>
-            <Body>
-              <Text>Name:{item.name}</Text>
-              <Text note>Price:{item.price} SAR</Text>
-              <Text note>Quantity:{item.qty} </Text>
-            </Body>
-          </Left>
-        </CardItem>
-      </Card>
-    </>
+    <Card transparent key={item.id} style={{ flex: 0 }}>
+      <CardItem header>
+        <Left>
+          <Body>
+            <Text>Name:{item.name}</Text>
+            <Text note>Price:{item.price} SAR</Text>
+            <Text note>Quantity:{item.qty} </Text>
+          </Body>
+        </Left>
+      </CardItem>
+    </Card >
   ));
 
   return (
