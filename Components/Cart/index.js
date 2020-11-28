@@ -25,6 +25,9 @@ const Cart = ({ cart, navigation, postBill }) => {
     storeproduct: item.product.id,
     qty: item.quantity,
   }));
+  console.log("itemsCart");
+
+  console.log(itemsCart);
   //return storeBarcode (from URL take store Barcode then save inside items of  cart)
   const storeBarcode = items.map((item) => item.storeBarcode)[0];
 
