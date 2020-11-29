@@ -1,17 +1,17 @@
 import React, { useRef, useEffect } from "react";
 import { Animated, StyleSheet, View } from "react-native";
-import Camera from "./Camera";
+import BarcodeCamera from "./Camera";
 import Frame from "./Frame";
 
-const ScanCamera = () => {
+const ProductCamera = () => {
   // the laser inimation and the loop effect
 
   return (
     <>
-      <Camera />
+      <BarcodeCamera />
       <Frame />
     </>
   );
 };
 
-export default ScanCamera;
+export default ProductCamera;
