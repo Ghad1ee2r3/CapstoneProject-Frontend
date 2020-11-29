@@ -27,9 +27,17 @@ const ProductDetail = ({
   const productBarcode = route.params.productBarcode;
   const storeBarcode = route.params.storeBarcode;
   const [counter, setCounter] = useState(0);
-  let listOfQuantityItems = cart.items.map((item) => +item.quantity);
+  let totalNumberOfItems = 0;
+  if (cart.items.length > 0) {
+    let listOfQuantityItems = cart.items.map((item) => +item.quantity);
 
-  const totalNumberOfItems = listOfQuantityItems.reduce((a, b) => a + b, 0);
+    totalNumberOfItems = listOfQuantityItems.reduce((a, b) => a + b, 0);
+  }
+  // else {
+  //   if (cart.items.length < 1) {
+  //     return <Text>Loading...</Text>;
+  //   }
+  // }
 
   useEffect(() => {
     getProduct(productBarcode, storeBarcode);
@@ -45,6 +53,7 @@ const ProductDetail = ({
 
   const handlePress = () => {
     // in case add more than 5 item in first time
+
     if (counter < 5 && quantity < 5 && totalNumberOfItems < 5) {
       const newItem = { ...item, quantity: +quantity, product: product };
       addItemToCart(newItem);

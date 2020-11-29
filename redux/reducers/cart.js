@@ -1,4 +1,4 @@
-import { SET_CART, ADD_ITEM, CHECKOUT } from "../actions/actionTypes";
+import { SET_CART, ADD_ITEM, DELETE_ITEM } from "../actions/actionTypes";
 import { AsyncStorage } from "react-native";
 
 const initialState = {
@@ -36,13 +36,31 @@ const reducer = (state = initialState, action) => {
 
       const tax = +(subtotal * 0.15).toFixed(2);
       const total = +(subtotal + tax).toFixed(2);
-      const cart = {
+      let cart = {
         ...state,
         items: items,
         subtotal: subtotal,
         tax: tax,
         total: total,
       };
+
+      return cart;
+
+    case DELETE_ITEM:
+      // console.log("____________from cart reducer____________");
+      // console.log(action.payload);
+      console.log("____________from cart reducer items____________");
+      console.log(state.items);
+      //...state.items.slice
+      let index = state.items.indexOf(action.payload);
+      console.log("____________from cart index =____________");
+      console.log(index);
+      let cartupdate = state.items.splice(index, 1);
+      console.log("____________from cart list____________");
+      console.log(cartupdate);
+      cart = cartupdate;
+      console.log("____________from cart after delete____________");
+      console.log(state.items);
 
       return cart;
 

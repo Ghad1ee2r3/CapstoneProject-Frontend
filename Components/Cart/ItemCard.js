@@ -9,8 +9,11 @@ import {
   Body,
   ListItem,
 } from "native-base";
+import { deleteItemFromCart } from "../../redux/actions";
+import { Right, Button, Icon } from "native-base";
+import { connect } from "react-redux";
 
-const ItemCard = ({ item }) => {
+const ItemCard = ({ item, deleteItemFromCart }) => {
   return (
     <Card key={item.barcode}>
       <CardItem>
@@ -20,9 +23,18 @@ const ItemCard = ({ item }) => {
             <Text note>Quantity :{item.quantity}</Text>
           </Body>
         </Left>
+        <Right>
+          <Button transparent onPress={() => deleteItemFromCart(item)}>
+            <Icon name="trash" />
+          </Button>
+        </Right>
       </CardItem>
     </Card>
   );
 };
 
-export default ItemCard;
+const mapDispatchToProps = {
+  deleteItemFromCart,
+};
+//export default ItemCard;
+export default connect(null, mapDispatchToProps)(ItemCard);

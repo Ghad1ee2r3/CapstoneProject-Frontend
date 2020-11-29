@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import ItemCard from "./ItemCard";
 import {
@@ -16,25 +16,37 @@ import { postBill } from "../../redux/actions";
 
 const Cart = ({ cart, navigation, postBill }) => {
   let items = cart.items;
-  const itemCards = items.map((item) => <ItemCard key={item.id} item={item} />);
+  // useEffect(() => {
+  //   items =
+  // }, []);
+  let itemCards;
 
-  const itemsCart = items.map((item) => ({
-    storeproduct: item.product.id,
-    qty: item.quantity,
-  }));
-  console.log("itemsCart");
+  if (cart.items.length > 0) {
+    itemCards = cart.items.map((item) => (
+      <ItemCard key={item.id} item={item} />
+    ));
 
-  console.log(itemsCart);
-  //return storeBarcode (from URL take store Barcode then save inside items of  cart)
-  const storeBarcode = items.map((item) => item.storeBarcode)[0];
+    let itemsCart = cart.items.map((item) => ({
+      storeproduct: item.product.id,
+      qty: item.quantity,
+    }));
+    console.log("itemsCart");
 
-  let bill = {
-    total: cart.total,
-    tax: cart.tax,
-    store: storeBarcode,
-    items: itemsCart,
-  };
+    console.log(itemsCart);
+    //return storeBarcode (from URL take store Barcode then save inside items of  cart)
+    const storeBarcode = items.map((item) => item.storeBarcode)[0];
 
+    let bill = {
+      total: cart.total,
+      tax: cart.tax,
+      store: storeBarcode,
+      items: itemsCart,
+    };
+  } else {
+    if (cart.items.length < 1) {
+      return <Text>Loading...</Text>;
+    }
+  }
   const handleCheckout = () => {
     new_bill = postBill(bill);
     navigation.replace("CheckoutPage");
