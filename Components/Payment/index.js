@@ -11,6 +11,8 @@ const Payment = ({ navigation, getPaymentLink, route, bills, paymentLink }) => {
   // const orderNumber = route.params.orderNumber;
   const orderNumber = bills[bills.length - 1].number;
   const [link, setLink] = useState("");
+  // this one is to show or hide the payment webview after the payment is done
+  const [paymentView, setPaymentView] = useState(true)
 
   useEffect(() => {
     setLink(getPaymentLink(orderNumber));
@@ -25,18 +27,32 @@ const Payment = ({ navigation, getPaymentLink, route, bills, paymentLink }) => {
       console.log("------------------");
       console.log("I STOPED!");
       console.log("------------------");
+      setPaymentView(false)
       navigation.navigate("Receipt");
       // maybe close this view?
     }
   };
 
   return (
-    <WebView
-      source={{ uri: `${paymentLink.url}` }}
-      style={{ marginTop: 0 }}
-      ref={(r) => (webref = r)}
-      onNavigationStateChange={handleWebViewNavigationStateChange.bind(this)}
-    />
+    <>
+      {
+        paymentView ?
+          <>
+            <WebView
+              source={{ uri: `${paymentLink.url}` }}
+              style={{ marginTop: 0 }}
+              ref={(r) => (webref = r)}
+              onNavigationStateChange={handleWebViewNavigationStateChange.bind(this)}
+            />
+          </> :
+          <>
+            <View>
+              <Text> Nothing to see here, move along</Text>
+            </View>
+          </>
+      }
+
+    </>
   );
 };
 
