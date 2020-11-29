@@ -4,6 +4,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import CheckoutPage from "../../Components/Cart/CheckoutPage";
 import Cart from "../../Components/Cart";
 import Payment from "../../Components/Payment";
+import Receipt from "../../Components/Receipt";
 
 import { stackScreenOptions } from "../options";
 
@@ -16,17 +17,26 @@ export default function ShopStack() {
       <Screen
         name="CheckoutPage"
         component={CheckoutPage}
-        options={(
-          ({ route }) => {
+        options={
+          (({ route }) => {
             const { orderNumber } = route.params;
             return {
               orderNumber: orderNumber,
             };
           },
-          { title: "Checkout" }
-        )}
+          { title: "Checkout" })
+        }
       />
-      <Screen name="Payment" component={Payment} options={{ title: "Payment" }} />
+      <Screen
+        name="Payment"
+        component={Payment}
+        options={{ title: "Payment" }}
+      />
+      <Screen
+        name="Receipt"
+        component={Receipt}
+        options={{ title: "Receipt" }}
+      />
     </Navigator>
   );
 }
