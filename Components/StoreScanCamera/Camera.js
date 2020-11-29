@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Text, View, Dimensions, StyleSheet } from "react-native";
-import { BarCodeScanner } from "expo-barcode-scanner";
 import { Camera } from "expo-camera";
+import Frame from "./Frame";
 
 const QrCamera = ({ navigation, route }) => {
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
-  const screenWidth = Dimensions.get("screen").width;
+
   useEffect(() => {
     (async () => {
       const { status } = await Camera.requestPermissionsAsync();
@@ -16,7 +16,7 @@ const QrCamera = ({ navigation, route }) => {
 
   const handleBarCodeScanned = ({ type, data }) => {
     setScanned(true);
-
+    console.log(data);
     navigation.replace("Store", { storeBarcode: data });
     setScanned(false);
   };
@@ -37,13 +37,29 @@ const QrCamera = ({ navigation, route }) => {
   }
 
   return (
-    <View style={{ backgroundColor: "black", width: "100%", height: "100%" }}>
+    <>
       <Camera
         onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
         ratio="16:9"
         style={StyleSheet.absoluteFillObject}
       />
-    </View>
+      <View style={{
+        position: "absolute",
+        left: 0,
+        right: 0,
+        top: 0,
+        bottom: 0
+      }}>
+        <View style={{
+          backgroundColor: "#33333350", top: 100,
+          marginLeft: 80, marginRight: 80, borderRadius: 15, borderWidth:1, borderColor:'#ffffff50',
+          height: 30, alignContent: "center", justifyContent: "center"
+        }}>
+          <Text style={{ textAlign: "center", color: "white" }}>Scan Store QR</Text>
+        </View>
+        <Frame />
+      </View>
+    </>
   );
 };
 

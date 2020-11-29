@@ -43,7 +43,7 @@ const Store = ({ route, navigation, stores }) => {
           >
             <Text>Yes</Text>
           </Button>
-          <Button onPress={() => navigation.replace("ScanCamera")}>
+          <Button onPress={() => navigation.replace("StoreScanCamera")}>
             <Text>No</Text>
           </Button>
         </View>

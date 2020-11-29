@@ -14,11 +14,14 @@ const Login = ({ login, navigation }) => {
       <Text style={styles.authTitle}>Login</Text>
       <TextInput
         style={styles.authTextInput}
-        placeholder="Username"
+        placeholder="Mobile Number"
         placeholderTextColor="#A6AEC1"
         value={username}
         onChangeText={setUsername}
         autoCapitalize="none"
+        keyboardType="phone-pad"
+        textContentType="telephoneNumber"
+
       />
       <TextInput
         style={styles.authTextInput}

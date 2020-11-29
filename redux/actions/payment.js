@@ -3,7 +3,7 @@ import instance from "./instance";
 
 export const fetchPaymentLink = (orderNumber) => async (dispatch) => {
     try {
-        const res = await instance.get(`checkout/${orderNumber}/get_payment_url/`);
+        const res = await instance.post(`checkout/${orderNumber}/get_payment_url/`);
         const paymnetLink = res.data;
 
         dispatch({
