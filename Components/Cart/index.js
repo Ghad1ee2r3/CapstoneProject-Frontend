@@ -17,9 +17,6 @@ import { postBill } from "../../redux/actions";
 const Cart = ({ cart, navigation, postBill }) => {
   let items = cart.items;
   const itemCards = items.map((item) => <ItemCard key={item.id} item={item} />);
-  console.log("---------cart------------");
-  console.log(cart);
-  console.log("---------cart------------");
 
   const itemsCart = items.map((item) => ({
     storeproduct: item.product.id,
@@ -39,7 +36,7 @@ const Cart = ({ cart, navigation, postBill }) => {
   };
 
   const handleCheckout = () => {
-    postBill(bill);
+    new_bill = postBill(bill);
     navigation.replace("CheckoutPage");
   };
 

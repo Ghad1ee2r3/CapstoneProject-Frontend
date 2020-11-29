@@ -18,3 +18,6 @@ export const SET_CART = "SET_CART";
 //Bills
 export const SET_BILLS = "SET_BILLS";
 export const ADD_BILL = "ADD_BILL";
+
+//Payment
+export const SET_PAYMENT = "SET_PAYMENT"

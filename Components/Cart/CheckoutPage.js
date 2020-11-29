@@ -8,9 +8,14 @@ import {
   Card,
   CardItem,
   Container,
+  Button,
 } from "native-base";
 
 const CheckoutPage = ({ cart, navigation }) => {
+  const handlePay = () => {
+    navigation.replace("Payment");
+  };
+
   return (
     <Container>
       <Content>
@@ -27,7 +32,12 @@ const CheckoutPage = ({ cart, navigation }) => {
 
           <CardItem>
             <Left>
-              <Body>{/* //options pay */}</Body>
+              <Body>
+                <Text>Takes you to the payment page</Text>
+                <Button onPress={() => handlePay()}>
+                  <Text>Pay Now</Text>
+                </Button>
+              </Body>
             </Left>
           </CardItem>
         </Card>
