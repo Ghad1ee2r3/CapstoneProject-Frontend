@@ -50,7 +50,7 @@ export default function ScanStack() {
               productBarcode: productBarcode,
             };
           },
-          { title: "Product" })
+          { title: "Product Detail" })
           // ({ route, navigation }) => ({
           //   headerLeft: ({ navigation }) => (
           //     <Icon
@@ -74,13 +74,13 @@ export default function ScanStack() {
               storeBarcode: storeBarcode,
             };
           },
-          { title: "ProductNotfound" })
+          { title: "Product Not found" })
         }
       />
       <Screen
         name="ScanCamera"
         component={ScanCamera}
-        options={{ title: "ScanCamera" }}
+        options={{ title: "Scan Store QR" }}
       />
 
       <Screen
@@ -93,7 +93,7 @@ export default function ScanStack() {
               storeBarcode: storeBarcode,
             };
           },
-          { title: "ScanProduct" })
+          { title: "Scan Product Barcode" })
         }
       />
     </Navigator>

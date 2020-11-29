@@ -84,7 +84,7 @@ const ProductDetail = ({
             keyboardType="numeric"
             placeholder="1"
             onChangeText={setQuantity}
-            value={quantity}
+            value={`${quantity}`}
           />
           <Button onPress={() => handlePress()}>
             <Text>Add to cart</Text>
