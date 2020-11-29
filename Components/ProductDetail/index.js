@@ -26,16 +26,10 @@ const ProductDetail = ({
 }) => {
   const productBarcode = route.params.productBarcode;
   const storeBarcode = route.params.storeBarcode;
-  const [counter, setCounter] = useState(1);
-  let numberofitem = cart.items.map((item) => +item.quantity)[0];
-  let countitemuser;
-  if (numberofitem > 0) {
-    countitemuser = numberofitem;
-  } else {
-    countitemuser = 0;
-  }
-  console.log("numberofitem");
-  console.log(numberofitem);
+  const [counter, setCounter] = useState(0);
+  let listOfQuantityItems = cart.items.map((item) => +item.quantity);
+
+  const totalNumberOfItems = listOfQuantityItems.reduce((a, b) => a + b, 0);
 
   useEffect(() => {
     getProduct(productBarcode, storeBarcode);
@@ -51,7 +45,7 @@ const ProductDetail = ({
 
   const handlePress = () => {
     // in case add more than 5 item in first time
-    if (counter < 4 && quantity < 4 && countitemuser < 4) {
+    if (counter < 5 && quantity < 5 && totalNumberOfItems < 5) {
       const newItem = { ...item, quantity: +quantity, product: product };
       addItemToCart(newItem);
       setItem(newItem);

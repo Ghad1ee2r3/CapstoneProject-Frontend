@@ -6,11 +6,12 @@ export const fetchPaymentLink = (orderNumber) => async (dispatch) => {
         const res = await instance.post(`checkout/${orderNumber}/get_payment_url/`);
         const paymnetLink = res.data;
 
-        dispatch({
-            type: SET_PAYMENT,
-            payload: paymnetLink,
-        });
-    } catch (error) {
-        console.error(error);
-    }
+
+    dispatch({
+      type: SET_PAYMENT,
+      payload: paymnetLink,
+    });
+  } catch (error) {
+    console.error(error);
+  }
 };
