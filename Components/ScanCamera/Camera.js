@@ -3,13 +3,13 @@ import { Text, View, Dimensions, StyleSheet } from "react-native";
 import { BarCodeScanner } from "expo-barcode-scanner";
 import { Camera } from "expo-camera";
 
-const MyCamera = ({ navigation, route }) => {
+const QrCamera = ({ navigation, route }) => {
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
   const screenWidth = Dimensions.get("screen").width;
   useEffect(() => {
     (async () => {
-      const { status } = await BarCodeScanner.requestPermissionsAsync();
+      const { status } = await Camera.requestPermissionsAsync();
       setHasPermission(status === "granted");
     })();
   }, []);
@@ -22,10 +22,18 @@ const MyCamera = ({ navigation, route }) => {
   };
 
   if (hasPermission === null) {
-    return <Text>Requesting for camera permission</Text>;
+    return (
+      <View>
+        <Text>Requesting for camera permission</Text>
+      </View>
+    );
   }
   if (hasPermission === false) {
-    return <Text>No access to camera</Text>;
+    return (
+      <View>
+        <Text>No access to camera</Text>
+      </View>
+    );
   }
 
   return (
@@ -39,4 +47,4 @@ const MyCamera = ({ navigation, route }) => {
   );
 };
 
-export default MyCamera;
+export default QrCamera;

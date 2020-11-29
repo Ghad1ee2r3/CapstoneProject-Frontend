@@ -2,7 +2,6 @@ import React from "react";
 import { connect } from "react-redux";
 // components
 import BillCard from "./BillCard";
-
 import { List, Content, Text } from "native-base";
 const BillsList = ({ navigation, bills, user }) => {
   // send one item from list to display in card

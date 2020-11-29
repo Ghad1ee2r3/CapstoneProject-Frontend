@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Text, View, StyleSheet, Button, Dimensions } from "react-native";
 import { BarCodeScanner } from "expo-barcode-scanner";
+import { Camera } from "expo-camera";
 
-const Camera = ({ navigation, route }) => {
+const BarcodeCamera = ({ navigation, route }) => {
   const { storeBarcode } = route.params; //uuid of store
 
   const [hasPermission, setHasPermission] = useState(null);
@@ -10,7 +11,7 @@ const Camera = ({ navigation, route }) => {
   const screenWidth = Dimensions.get("screen").width;
   useEffect(() => {
     (async () => {
-      const { status } = await BarCodeScanner.requestPermissionsAsync();
+      const { status } = await Camera.requestPermissionsAsync();
       setHasPermission(status === "granted");
     })();
   }, []);
@@ -39,12 +40,13 @@ const Camera = ({ navigation, route }) => {
 
   return (
     <View style={{ backgroundColor: "red", width: "100%", height: "100%" }}>
-      <BarCodeScanner
-        style={{ position: "relative", flex: 1 }}
+      <Camera
         onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
+        ratio="16:9"
+        style={StyleSheet.absoluteFillObject}
       />
     </View>
   );
 };
 
-export default Camera;
+export default BarcodeCamera;
