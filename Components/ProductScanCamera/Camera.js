@@ -45,6 +45,16 @@ const BarcodeCamera = ({ navigation, route }) => {
         onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
         ratio="16:9"
         style={StyleSheet.absoluteFillObject}
+        barCodeScannerSettings={{
+          barCodeTypes: [
+            BarCodeScanner.Constants.BarCodeType.code39,
+            BarCodeScanner.Constants.BarCodeType.code93,
+            BarCodeScanner.Constants.BarCodeType.code128,
+            BarCodeScanner.Constants.BarCodeType.ean13,
+            BarCodeScanner.Constants.BarCodeType.ean13
+          ],
+        }}
+
       />
       <View style={{
         position: "absolute",
@@ -55,7 +65,7 @@ const BarcodeCamera = ({ navigation, route }) => {
       }}>
         <View style={{
           backgroundColor: "#33333350", top: 100,
-          marginLeft: 80, marginRight: 80, borderRadius: 15, borderWidth:1, borderColor:'#ffffff50',
+          marginLeft: 80, marginRight: 80, borderRadius: 15, borderWidth: 1, borderColor: '#ffffff50',
           height: 30, alignContent: "center", justifyContent: "center"
         }}>
           <Text style={{ textAlign: "center", color: "white" }}>Scan Product Barcode</Text>
