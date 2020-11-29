@@ -5,9 +5,9 @@ import ProductDetail from "../../Components/ProductDetail";
 
 import Store from "../../Components/Store";
 
-import ScanCamera from "../../Components/ScanCamera/Camera";
+import ScanCamera from "../../Components/StoreScanCamera/Camera";
 
-import ScanProduct from "../../Components/ScanProduct/Camera";
+import ScanProduct from "../../Components/ProductScanCamera/Camera";
 import ProductNotfound from "../../Components/ProductNotfound";
 import { Button, Text } from "native-base";
 import Icon from "react-native-vector-icons/Feather";

@@ -21,7 +21,9 @@ const Signup = ({ signup, navigation }) => {
       Alert.alert('Oh No', 'Password must be minimum 8 characters')
     }
     else {
-      signup({ username, email, firstname, lastname, password })
+      const first_name = firstname
+      const last_name = lastname
+      signup({ username, email, first_name, last_name, password });
     }
   }
 

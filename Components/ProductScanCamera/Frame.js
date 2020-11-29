@@ -27,6 +27,7 @@ const Frame = () => {
               width: "100%",
               flex: 1,
               borderColor: "white",
+              borderTopLeftRadius: 40,
               borderLeftWidth: 3,
               borderTopWidth: 3,
             }}
@@ -38,6 +39,7 @@ const Frame = () => {
               width: "100%",
               flex: 1,
               borderColor: "white",
+              borderTopRightRadius: 40,
               borderRightWidth: 3,
               borderTopWidth: 3,
             }}
@@ -50,6 +52,7 @@ const Frame = () => {
               width: "100%",
               flex: 1,
               borderColor: "white",
+              borderBottomLeftRadius: 40,
               borderLeftWidth: 3,
               borderBottomWidth: 3,
             }}
@@ -61,6 +64,7 @@ const Frame = () => {
               width: "100%",
               flex: 1,
               borderColor: "white",
+              borderBottomRightRadius: 40,
               borderRightWidth: 3,
               borderBottomWidth: 3,
             }}
