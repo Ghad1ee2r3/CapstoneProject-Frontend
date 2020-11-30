@@ -51,6 +51,9 @@ const ProductDetail = ({
       setItem(newItem);
       setCounter(counter + parseInt(quantity));
       alert(`Product added successfully `);
+      navigation.replace("ScanProduct", {
+        storeBarcode: storeBarcode,
+      })
     } else {
       alert(`You can not add more than 5 item !`);
     }
