@@ -19,7 +19,7 @@ const Cart = ({ cart, navigation, postBill }) => {
   const itemCards = items.map((item) => {
     console.log(`${item.id} ${item.name}`);
     return (
-      <ItemCard key={`${item.id} ${item.name}`} item={item} />
+      <ItemCard key={`${item.product.name} ${item.product.id}`} item={item} />
     )
   });
 

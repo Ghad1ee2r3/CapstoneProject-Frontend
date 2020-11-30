@@ -7,9 +7,8 @@ const BillDetail = ({ route }) => {
   const { bill } = route.params;
   // let totaltax = bill.total * 0.15;
   // totaltax = totaltax + parseInt(bill.total);
-
   const orderItems = bill.items.map((item) => (
-    <Card transparent key={item.id} style={{ flex: 0 }}>
+    <Card key={item.name} style={{ flex: 0 }}>
       <CardItem header>
         <Left>
           <Body>
