@@ -18,7 +18,7 @@ export default function RootTabNavigator() {
       screenOptions={tabScreenOptions}
     >
       <Screen name="Profile" component={UserStack} />
-      <Screen name="Product" component={ScanStack} />
+      <Screen name="Product" component={ScanStack} options={{unmountOnBlur: true}}/>
       <Screen name="Cart" component={CartStack} />
     </Navigator>
   );
