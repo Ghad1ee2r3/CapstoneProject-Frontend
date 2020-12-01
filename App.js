@@ -20,6 +20,7 @@ export default function App() {
   const [loaded] = Font.useFonts({
     'Roboto': require('native-base/Fonts/Roboto.ttf'),
     'Roboto_medium': require('native-base/Fonts/Roboto_medium.ttf'),
+    'roboto-regular': require('native-base/Fonts/Roboto_regular.ttf'),
   });
 
   if (!loaded) {

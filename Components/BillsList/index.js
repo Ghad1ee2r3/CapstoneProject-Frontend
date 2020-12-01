@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import BillCard from "./BillCard";
 import { ImageBackground, Text, TextInput, StyleSheet } from "react-native";
 
-import { List, Content, Text } from "native-base";
+import { List } from "native-base";
 const BillsList = ({ navigation, bills, user }) => {
   // send one item from list to display in card
   const billCards = bills.map((bill) => (

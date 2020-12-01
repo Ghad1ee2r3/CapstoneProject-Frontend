@@ -45,15 +45,15 @@ const BarcodeCamera = ({ navigation, route }) => {
         onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
         ratio="16:9"
         style={StyleSheet.absoluteFillObject}
-        barCodeScannerSettings={{
-          barCodeTypes: [
-            BarCodeScanner.Constants.BarCodeType.code39,
-            BarCodeScanner.Constants.BarCodeType.code93,
-            BarCodeScanner.Constants.BarCodeType.code128,
-            BarCodeScanner.Constants.BarCodeType.ean13,
-            BarCodeScanner.Constants.BarCodeType.ean13
-          ],
-        }}
+        // barCodeScannerSettings={{
+        //   barCodeTypes: [
+        //     BarCodeScanner.Constants.BarCodeType.code39,
+        //     BarCodeScanner.Constants.BarCodeType.code93,
+        //     BarCodeScanner.Constants.BarCodeType.code128,
+        //     BarCodeScanner.Constants.BarCodeType.ean13,
+        //     BarCodeScanner.Constants.BarCodeType.ean13
+        //   ],
+        // }}
 
       />
       <View style={{

@@ -67,8 +67,9 @@ const ProductDetail = ({
             <Left>
               <Body>
                 <Image
-                  source={require("../../assets/images/Gradient_ospoIDs.png")}
-                  style={styles.image1}
+                  source={{
+                    uri: product?.image,
+                  }} style={styles.image1}
                 />
 
                 <Text style={styles.name}>{product?.name}</Text>

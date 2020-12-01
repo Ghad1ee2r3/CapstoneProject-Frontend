@@ -21,15 +21,16 @@ const ItemCard = ({ item }) => {
           <Body>
             <View style={styles.rect1}>
               <Image
-                source={require("../../assets/images/Gradient_ospoIDs.png")}
-                style={styles.image1}
+                source={{
+                  uri: item.product?.image,
+                }} style={styles.image1}
               ></Image>
               <Text style={styles.nameOfProduct1}>
-               
+
                 {item.product.name}
               </Text>
               <Text note style={styles.price}>
-                {item.price} SAR
+                {item.product.price} SAR
               </Text>
               <Text note style={styles.qty1}>
                 {item.quantity}

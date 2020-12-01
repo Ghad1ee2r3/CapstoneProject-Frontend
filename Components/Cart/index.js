@@ -6,9 +6,15 @@ import { Container } from "native-base";
 import { postBill } from "../../redux/actions";
 
 const Cart = ({ cart, navigation, postBill }) => {
+
   let items = cart.items;
+
   const itemCards = items.map((item) => {
-    console.log(`${item.id} ${item.name}`);
+    return (
+      <ItemCard key={`${item.id} ${item.name}`} item={item} />
+    )
+  });
+  // console.log(`${item.id} ${item.name}`);
   const itemsCart = items.map((item) => ({
     storeproduct: item.product.id,
     qty: item.quantity,
@@ -76,7 +82,7 @@ const styles = StyleSheet.create({
   group1: {
     width: 360,
     height: 150,
-    marginTop: 400,
+    marginTop:210,
   },
   rect1: {
     width: 460,
@@ -111,7 +117,7 @@ const styles = StyleSheet.create({
   tax15: {
     color: "rgba(138,138,138,1)",
     fontSize: 16,
-    marginTop: -21,
+    // marginTop: 0,
   },
   tax16: {
     color: "rgba(138,138,138,1)",

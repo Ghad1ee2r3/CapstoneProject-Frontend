@@ -42,21 +42,21 @@ const BillDetail = ({ route }) => {
               <List>{orderItems}</List>
               <CardItem>
                 <Body>
-                  <Text footer style={styles.subtotal1}>
+                  {/* <Text footer style={styles.subtotal1}>
                     Subtotal
                   </Text>
                   <Text footer style={styles.loremIpsum2}>
                     {bill.total}
-                  </Text>
+                  </Text> */}
                   <Text footer style={styles.tax1}>
-                    Tax
+                    Tax (15%)
                   </Text>
                   <Text foote style={styles.tax2}>
-                    (15%)
+                    {bill.tax}
                   </Text>
                   <Text footer>Total</Text>
                   <Text footer style={styles.loremIpsum3}>
-                    {totaltax}
+                    {bill.total}
                   </Text>
                 </Body>
               </CardItem>

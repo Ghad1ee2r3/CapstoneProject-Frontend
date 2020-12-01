@@ -36,7 +36,7 @@ const CheckoutPage = ({ cart, navigation }) => {
             </View>
           </View>
           <TouchableOpacity
-            onPress={() => props.navigation.navigate("Channels")}
+            onPress={() => navigation.navigate("Payment")}
             style={styles.button1}
           >
             <Text style={styles.payment}>Payment</Text>
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
   group1: {
     width: 360,
     height: 197,
-    marginTop: 520,
+    marginTop: 220,
   },
   rect1: {
     width: 460,
