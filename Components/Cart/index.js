@@ -7,15 +7,13 @@ import { postBill } from "../../redux/actions";
 
 const Cart = ({ cart, navigation, postBill }) => {
   let items = cart.items;
-  const itemCards = items.map((item) => <ItemCard key={item.id} item={item} />);
-  console.log("---------cart------------");
-  console.log(cart);
-  console.log("---------cart------------");
-
+  const itemCards = items.map((item) => {
+    console.log(`${item.id} ${item.name}`);
   const itemsCart = items.map((item) => ({
     storeproduct: item.product.id,
     qty: item.quantity,
   }));
+  console.log("itemsCart");
   //return storeBarcode (from URL take store Barcode then save inside items of  cart)
   const storeBarcode = items.map((item) => item.storeBarcode)[0];
 
@@ -27,7 +25,7 @@ const Cart = ({ cart, navigation, postBill }) => {
   };
 
   const handleCheckout = () => {
-    postBill(bill);
+    const new_bill = postBill(bill);
     navigation.replace("CheckoutPage");
   };
 
@@ -56,6 +54,7 @@ const Cart = ({ cart, navigation, postBill }) => {
         </View>
       </View>
     </View>
+
   );
 };
 

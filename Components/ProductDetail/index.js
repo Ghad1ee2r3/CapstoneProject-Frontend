@@ -21,11 +21,15 @@ const ProductDetail = ({
   navigation,
   addItemToCart,
   product,
+  cart,
   getProduct,
 }) => {
   const productBarcode = route.params.productBarcode;
   const storeBarcode = route.params.storeBarcode;
-  const [counter, setCounter] = useState(1);
+  const [counter, setCounter] = useState(0);
+  let listOfQuantityItems = cart.items.map((item) => +item.quantity);
+
+  const totalNumberOfItems = listOfQuantityItems.reduce((a, b) => a + b, 0);
 
   useEffect(() => {
     getProduct(productBarcode, storeBarcode);
@@ -41,11 +45,15 @@ const ProductDetail = ({
 
   const handlePress = () => {
     // in case add more than 5 item in first time
-    if (counter < 5 && quantity < 5) {
+    if (counter < 5 && quantity < 5 && totalNumberOfItems < 5) {
       const newItem = { ...item, quantity: +quantity, product: product };
       addItemToCart(newItem);
       setItem(newItem);
       setCounter(counter + parseInt(quantity));
+      alert(`Product added successfully `);
+      navigation.replace("ScanProduct", {
+        storeBarcode: storeBarcode,
+      })
     } else {
       alert(`You can not add more than 5 item !`);
     }
@@ -83,6 +91,7 @@ const ProductDetail = ({
             value={quantity}
             note
             style={styles.qty}
+
           />
           <Button style={styles.button} onPress={() => handlePress()}>
             <Text style={styles.add}>Add to cart</Text>
@@ -150,8 +159,10 @@ const styles = StyleSheet.create({
     borderColor: "rgba(219,215,215,1)",
   },
 });
-const mapStateToProps = ({ product }) => ({
+
+const mapStateToProps = ({ product, cart }) => ({
   product,
+  cart,
 });
 
 const mapDispatchToProps = (dispatch) => {

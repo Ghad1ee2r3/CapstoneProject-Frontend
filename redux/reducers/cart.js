@@ -34,8 +34,8 @@ const reducer = (state = initialState, action) => {
       const subtotal =
         state.subtotal + action.payload.quantity * action.payload.product.price;
 
-      const tax = subtotal * 0.15;
-      const total = subtotal + tax;
+      const tax = +(subtotal * 0.15).toFixed(2);
+      const total = +(subtotal + tax).toFixed(2);
       const cart = {
         ...state,
         items: items,

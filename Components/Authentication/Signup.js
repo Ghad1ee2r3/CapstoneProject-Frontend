@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { Component } from "react";
 import { connect } from "react-redux";
 import { signup } from "../../redux/actions";
+
 import { Text } from "native-base";
 import {
+  Alert,
   StyleSheet,
   View,
   StatusBar,
@@ -22,6 +24,20 @@ const Signup = ({ signup, navigation }) => {
   const [email, setEmail] = useState("");
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
+
+  const handleFormSubmit = () => {
+    if (!username.match('05[0-9]{8}')) {
+      Alert.alert('Oh No', 'Mobile number is invalid, it should be like this 0591234567')
+    }
+    else if (password.trim().length < 8) {
+      Alert.alert('Oh No', 'Password must be minimum 8 characters')
+    }
+    else {
+      const first_name = firstname
+      const last_name = lastname
+      signup({ username, email, first_name, last_name, password });
+    }
+  }
 
   return (
     <View style={styles.root}>
@@ -131,6 +147,7 @@ const Signup = ({ signup, navigation }) => {
           </View>
         </ImageBackground>
       </View>
+
     </View>
   );
 };

@@ -8,10 +8,15 @@ import {
   Card,
   CardItem,
   Container,
+  Button,
 } from "native-base";
 import { View, TouchableOpacity, StyleSheet } from "react-native";
 
 const CheckoutPage = ({ cart, navigation }) => {
+  const handlePay = () => {
+    navigation.replace("Payment");
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.group1}>
@@ -38,7 +43,7 @@ const CheckoutPage = ({ cart, navigation }) => {
           </TouchableOpacity>
         </View>
       </View>
-    </View>
+    </View>    
   );
 };
 const styles = StyleSheet.create({

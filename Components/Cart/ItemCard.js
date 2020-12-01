@@ -25,16 +25,17 @@ const ItemCard = ({ item }) => {
                 style={styles.image1}
               ></Image>
               <Text style={styles.nameOfProduct1}>
-                {" "}
-                ghvgvgvgvvgg{item.product.name}
+               
+                {item.product.name}
               </Text>
               <Text note style={styles.price}>
-                {item.price} gvgvgSAR
+                {item.price} SAR
               </Text>
               <Text note style={styles.qty1}>
                 {item.quantity}
               </Text>
             </View>
+
           </Body>
         </Left>
       </CardItem>

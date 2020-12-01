@@ -5,10 +5,13 @@ import ProductDetail from "../../Components/ProductDetail";
 
 import Store from "../../Components/Store";
 
-import ScanCamera from "../../Components/ScanCamera/Camera";
+import ScanCamera from "../../Components/StoreScanCamera/Camera";
 
-import ScanProduct from "../../Components/ScanProduct/Camera";
+import ScanProduct from "../../Components/ProductScanCamera/Camera";
+import ProductNotfound from "../../Components/ProductNotfound";
 import { Button, Text } from "native-base";
+import Icon from "react-native-vector-icons/Feather";
+import { useNavigation } from "@react-navigation/native";
 
 import { stackScreenOptions } from "../options";
 
@@ -47,13 +50,37 @@ export default function ScanStack() {
               productBarcode: productBarcode,
             };
           },
-          { title: "Product" })
+          { title: "Product Detail" })
+          // ({ route, navigation }) => ({
+          //   headerLeft: ({ navigation }) => (
+          //     <Icon
+          //       onPress={({ navigation }) => navigation.push("ScanProduct")}
+          //       color="#fff"
+          //       name="arrow-left"
+          //       size={26}
+          //       color="black"
+          //     />
+          //   ),
+          // })
+        }
+      />
+      <Screen
+        name="ProductNotfound"
+        component={ProductNotfound}
+        options={
+          (({ route, navigation }) => {
+            const { storeBarcode } = route.params;
+            return {
+              storeBarcode: storeBarcode,
+            };
+          },
+          { title: "Product Not found" })
         }
       />
       <Screen
         name="ScanCamera"
         component={ScanCamera}
-        options={{ title: "ScanCamera" }}
+        options={{ title: "Scan Store QR" }}
       />
 
       <Screen
@@ -66,7 +93,7 @@ export default function ScanStack() {
               storeBarcode: storeBarcode,
             };
           },
-          { title: "ScanProduct" })
+          { title: "Scan Product Barcode" })
         }
       />
     </Navigator>

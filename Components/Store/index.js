@@ -68,6 +68,7 @@ const Store = ({ route, navigation, stores }) => {
         </ImageBackground>
       </View>
     </View>
+
   );
 };
 const styles = StyleSheet.create({

@@ -4,10 +4,10 @@ import { StyleSheet, View, Image } from "react-native";
 
 const BillDetail = ({ route }) => {
   const { bill } = route.params;
-  let totaltax = bill.total * 0.15;
-  totaltax = totaltax + parseInt(bill.total);
-
+  // let totaltax = bill.total * 0.15;
+  // totaltax = totaltax + parseInt(bill.total);
   const orderItems = bill.items.map((item) => (
+
     <>
       <Card transparent style={{ flex: 0 }}>
         <CardItem header>
@@ -27,6 +27,7 @@ const BillDetail = ({ route }) => {
         </CardItem>
       </Card>
     </>
+
   ));
 
   return (

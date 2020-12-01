@@ -22,8 +22,7 @@ const Login = ({ login, navigation }) => {
         <ImageBackground
           style={styles.rect}
           imageStyle={styles.rect_imageStyle}
-          source={require("../../assets/images/Gradient_ospoIDs.png")}
-        >
+          source={require("../../assets/images/Gradient_ospoIDs.png")}  >
           <View style={styles.logoColumn}>
             <View style={styles.logo}>
               <View style={styles.endWrapperFiller}></View>
