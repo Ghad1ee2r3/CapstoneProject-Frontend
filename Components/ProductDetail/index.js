@@ -67,36 +67,98 @@ const ProductDetail = ({
             <Left>
               <Body>
                 <Image
-                  source={{
-                    uri: product?.image,
-                  }}
-                  style={{ height: 400, width: 400, flex: 1 }}
+                  source={require("../../assets/images/Gradient_ospoIDs.png")}
+                  style={styles.image1}
                 />
 
-                <Text>{product?.name}</Text>
-                <Text note>Price:{product?.price} SAR</Text>
-                <Text note>Description :{product?.description}</Text>
+                <Text style={styles.name}>{product?.name}</Text>
+                <Text note style={styles.price}>
+                  {product?.price} SAR
+                </Text>
+                <Text note style={styles.des}>
+                  {product?.description}
+                </Text>
               </Body>
             </Left>
           </CardItem>
         </Card>
         <View>
-          <Text>Quantity:</Text>
           <Input
             border
             keyboardType="numeric"
             placeholder="1"
             onChangeText={setQuantity}
-            value={`${quantity}`}
+            value={quantity}
+            note
+            style={styles.qty}
+
           />
-          <Button onPress={() => handlePress()}>
-            <Text>Add to cart</Text>
+          <Button style={styles.button} onPress={() => handlePress()}>
+            <Text style={styles.add}>Add to cart</Text>
           </Button>
         </View>
       </Content>
     </Container>
   );
 };
+const styles = StyleSheet.create({
+  image1: {
+    height: 400,
+    width: 370,
+    flex: 1,
+
+    borderRadius: 11,
+    opacity: 0.79,
+    borderWidth: 2,
+    borderColor: "rgba(219,215,215,1)",
+  },
+  name: {
+    color: "rgba(31,178,204,1)",
+    fontSize: 30,
+    marginLeft: 130,
+  },
+  price: {
+    color: "rgba(31,178,204,1)",
+    fontSize: 16,
+    marginLeft: 140,
+  },
+  des: {
+    fontSize: 16,
+    marginLeft: 70,
+  },
+  rect: {
+    flex: 1,
+  },
+  rect_imageStyle: {},
+  logo: {
+    width: 102,
+    height: 300,
+    alignSelf: "center",
+  },
+  button: {
+    height: 59,
+    width: 300,
+    backgroundColor: "rgba(31,178,204,1)",
+
+    borderRadius: 5,
+    borderColor: "rgba(255,255,255,1)",
+    borderWidth: 2,
+    flex: 1,
+    marginLeft: 65,
+    marginTop: -55,
+  },
+  add: {
+    marginLeft: 80,
+  },
+  qty: {
+    width: 30,
+    color: "rgba(31,178,204,1)",
+    marginTop: 60,
+    marginLeft: 20,
+    borderWidth: 1,
+    borderColor: "rgba(219,215,215,1)",
+  },
+});
 
 const mapStateToProps = ({ product, cart }) => ({
   product,
