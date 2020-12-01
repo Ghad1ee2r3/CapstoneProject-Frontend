@@ -2,8 +2,8 @@ import React from "react";
 import { connect } from "react-redux";
 // components
 import BillCard from "./BillCard";
-
-import { List, Content, Text } from "native-base";
+import { ImageBackground, Text, TextInput, StyleSheet } from "react-native";
+import { List, Content } from "native-base";
 const BillsList = ({ navigation, bills, user }) => {
   // send one item from list to display in card
   const billCards = bills.map((bill) => (
@@ -11,13 +11,26 @@ const BillsList = ({ navigation, bills, user }) => {
   ));
 
   return (
-    <Content>
-      <Text note>MY bills</Text>
-
+    <ImageBackground
+      style={styles.rect}
+      imageStyle={styles.rect_imageStyle}
+      source={require("../../assets/images/Gradient_ospoIDs.png")}
+    >
       <List>{billCards}</List>
-    </Content>
+    </ImageBackground>
   );
 };
+const styles = StyleSheet.create({
+  rect: {
+    flex: 1,
+  },
+  rect_imageStyle: {},
+  logo: {
+    width: 102,
+    height: 120,
+    alignSelf: "center",
+  },
+});
 const mapStateToProps = ({ bills, user }) => ({
   bills,
   user,
