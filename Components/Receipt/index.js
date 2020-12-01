@@ -12,8 +12,6 @@ import {
   Button,
 } from "native-base";
 
-import { Col, Row } from "react-native-easy-grid";
-
 import { setCart } from "../../redux/actions";
 
 const Receipt = ({ cart, navigation, user, setCart }) => {
@@ -36,24 +34,18 @@ const Receipt = ({ cart, navigation, user, setCart }) => {
       <Content>
         <Card style={{ flex: 0 }}>
           <CardItem header>
-            <Row>
-              <Text>First Name : {user?.first_name}</Text>
+            <Text>First Name : {user?.first_name}</Text>
 
-              <Text>Last Name : {user?.last_name}</Text>
-            </Row>
-            <Row>
-              <Text>Number: {user?.username}</Text>
-            </Row>
-            <Row>
-              <Text>Email : {user?.email}</Text>
-            </Row>
+            <Text>Last Name : {user?.last_name}</Text>
+            <Text>Number: {user?.username}</Text>
+            <Text>Email : {user?.email}</Text>
             <Left>
               <Body>
                 {items.length ? (
                   <>{itemsReceipt}</>
                 ) : (
-                  <Text>Receipt is empty</Text>
-                )}
+                    <Text>Receipt is empty</Text>
+                  )}
               </Body>
             </Left>
           </CardItem>
