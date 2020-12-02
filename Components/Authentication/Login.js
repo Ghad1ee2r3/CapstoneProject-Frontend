@@ -1,16 +1,21 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { login } from "../../redux/actions";
-import { TextInput, TouchableOpacity, View } from "react-native";
+import { Dimensions, Image, TextInput, TouchableOpacity, View } from "react-native";
 import { Text } from "native-base";
 import styles from "./styles";
+
+import logoImg from "../../assets/logo.png";
 
 const Login = ({ login, navigation }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  var myWidth = Dimensions.get('window').width;
 
   return (
     <View style={styles.authContainer}>
+      <Image style={{ height: "20%", width: (myWidth * 0.4) }} source={logoImg} />
+
       <Text style={styles.authTitle}>Login</Text>
       <TextInput
         style={styles.authTextInput}

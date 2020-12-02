@@ -8,22 +8,34 @@ import {
   Left,
   Body,
   ListItem,
+  Right,
 } from "native-base";
 
 const ItemReceipt = ({ item }) => {
   return (
-    <Card key={item.barcode}>
-      <CardItem>
-        <Left>
-          <Body>
-            <Text note>Quantity :{item.quantity}</Text>
-            <Text>Name:{item.product.name}</Text>
+    <ListItem thumbnail key={item.id}>
+      <Body>
+        <Text>{item.name}</Text>
+      </Body>
+      <Right>
+        <Text style={{textAlign:"center"}}>{item.qty}  </Text>
+      </Right>
+      <Right>
+        <Text style={{textAlign:"center"}}>{item.price}  SAR</Text>
+      </Right>
+    </ListItem>
+    // <Card key={item.barcode}>
+    //   <CardItem>
+    //     <Left>
+    //       <Body>
+    //         <Text note>Quantity :{item.quantity}</Text>
+    //         <Text>Name:{item.product.name}</Text>
 
-            <Text note>Price :{item.product.price}</Text>
-          </Body>
-        </Left>
-      </CardItem>
-    </Card>
+    //         <Text note>Price :{item.product.price}</Text>
+    //       </Body>
+    //     </Left>
+    //   </CardItem>
+    // </Card>
   );
 };
 

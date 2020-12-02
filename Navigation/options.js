@@ -3,7 +3,7 @@ import { Icon } from "native-base";
 
 export const stackScreenOptions = {
   headerStyle: {
-    backgroundColor: "rgb(91,192,190)",
+    backgroundColor: "#1eb2cc",
   },
   headerTitleStyle: {
     fontWeight: "bold",
@@ -16,7 +16,7 @@ export const tabBarOptions = {
   activeTintColor: "#ffffff95",
   inactiveTintColor: "#333333",
   style: {
-    backgroundColor: "rgb(91,192,190)",
+    backgroundColor: "#1eb2cc",
   },
 };
 

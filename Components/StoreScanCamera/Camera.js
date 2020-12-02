@@ -7,7 +7,7 @@ import { BarCodeScanner } from "expo-barcode-scanner";
 const QrCamera = ({ navigation, route }) => {
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
-
+  let camera
   useEffect(() => {
     (async () => {
       const { status } = await Camera.requestPermissionsAsync();
@@ -16,6 +16,7 @@ const QrCamera = ({ navigation, route }) => {
   }, []);
 
   const handleBarCodeScanned = ({ type, data }) => {
+    camera.pausePreview()
     setScanned(true);
     console.log(data);
     navigation.replace("Store", { storeBarcode: data });
@@ -42,6 +43,9 @@ const QrCamera = ({ navigation, route }) => {
       <Camera
         onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
         ratio="16:9"
+        ref={ref => {
+          camera = ref;
+        }}
         style={StyleSheet.absoluteFillObject}
         barCodeScannerSettings={{
           barCodeTypes: [BarCodeScanner.Constants.BarCodeType.qr],

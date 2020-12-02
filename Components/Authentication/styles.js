@@ -9,8 +9,9 @@ const styles = StyleSheet.create({
     alignSelf: "stretch",
     alignItems: "center",
     padding: 20,
-    backgroundColor: "#5BC0BE",
+    backgroundColor: "#1eb2cc",
     marginTop: 30,
+    borderRadius:50,
   },
   authButtonText: {
     color: "#FCFDFF",
@@ -19,7 +20,7 @@ const styles = StyleSheet.create({
   },
   authContainer: {
     flex: 1,
-    alignSelf: "stretch",
+    // alignSelf: "stretch",
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#FCFDFF",

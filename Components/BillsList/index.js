@@ -11,9 +11,7 @@ const BillsList = ({ navigation, bills, user }) => {
 
   return (
     <Content>
-      <Text note>MY bills</Text>
-
-      <List>{billCards}</List>
+      <List>{billCards.reverse()}</List>
     </Content>
   );
 };

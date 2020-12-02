@@ -6,7 +6,7 @@ import Frame from "./Frame";
 
 const BarcodeCamera = ({ navigation, route }) => {
   const { storeBarcode } = route.params; //uuid of store
-
+  let camera
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
   const screenWidth = Dimensions.get("screen").width;
@@ -18,6 +18,8 @@ const BarcodeCamera = ({ navigation, route }) => {
   }, []);
 
   const handleBarCodeScanned = ({ type, data }) => {
+    camera.pausePreview()
+
     setScanned(true);
 
     if (data) {
@@ -44,16 +46,32 @@ const BarcodeCamera = ({ navigation, route }) => {
       <Camera
         onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
         ratio="16:9"
+        ref={ref => {
+          camera = ref;
+        }}
+
         style={StyleSheet.absoluteFillObject}
-        // barCodeScannerSettings={{
-        //   barCodeTypes: [
-        //     BarCodeScanner.Constants.BarCodeType.code39,
-        //     BarCodeScanner.Constants.BarCodeType.code93,
-        //     BarCodeScanner.Constants.BarCodeType.code128,
-        //     BarCodeScanner.Constants.BarCodeType.ean13,
-        //     BarCodeScanner.Constants.BarCodeType.ean13
-        //   ],
-        // }}
+        barCodeScannerSettings={{
+          barCodeTypes: [
+            BarCodeScanner.Constants.BarCodeType.code39,
+            BarCodeScanner.Constants.BarCodeType.code93,
+            BarCodeScanner.Constants.BarCodeType.code128,
+            BarCodeScanner.Constants.BarCodeType.ean13,
+            BarCodeScanner.Constants.BarCodeType.aztec,
+            BarCodeScanner.Constants.BarCodeType.codabar,
+            BarCodeScanner.Constants.BarCodeType.code39mod43,
+            BarCodeScanner.Constants.BarCodeType.datamatrix,
+            BarCodeScanner.Constants.BarCodeType.interleaved2of5,
+            BarCodeScanner.Constants.BarCodeType.itf14,
+            BarCodeScanner.Constants.BarCodeType.maxicode,
+            BarCodeScanner.Constants.BarCodeType.pdf417,
+            BarCodeScanner.Constants.BarCodeType.rss14,
+            BarCodeScanner.Constants.BarCodeType.rssexpanded,
+            BarCodeScanner.Constants.BarCodeType.upc_a,
+            BarCodeScanner.Constants.BarCodeType.upc_e,
+            BarCodeScanner.Constants.BarCodeType.upc_ean,
+          ],
+        }}
 
       />
       <View style={{

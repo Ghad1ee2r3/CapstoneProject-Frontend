@@ -14,7 +14,7 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 
 const Profile = ({ user, logout, navigation }) => (
   <View style={{ backgroundColor: "#e4e8f0", flex: 1 }} >
-    <View style={{ backgroundColor: "rgb(91,192,190)", flex: 2, alignContent: "center", justifyContent: "center", paddingHorizontal: 25 }}>
+    <View style={{ backgroundColor: "#1eb2cc", flex: 2, alignContent: "center", justifyContent: "center", paddingHorizontal: 25 }}>
       <View style={{ flexDirection: "row", height: 70, alignContent: "center", justifyContent: "center", alignItems: "center" }}>
         <Thumbnail style={{ marginRight: 20 }} source={{ uri: 'https://i.stack.imgur.com/l60Hf.png' }} />
         <Text style={{ flex: 1, color: "white", fontSize: 18, fontWeight: "600" }}>Hello {user?.first_name} {user?.last_name}</Text>
