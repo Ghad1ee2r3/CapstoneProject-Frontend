@@ -1,17 +1,6 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-  logoutButton: {
-    elevation: 50,
-    position: "absolute",
-    bottom: 0,
-
-    backgroundColor: "#6B717E",
-    borderRadius: 50,
-    paddingVertical: 50,
-    paddingHorizontal: 50,
-    marginTop: 100,
-  },
   billButton: {
     elevation: 50,
     position: "absolute",

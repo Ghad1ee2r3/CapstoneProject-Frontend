@@ -60,41 +60,63 @@ const ProductDetail = ({
   };
 
   return (
-    <Container>
-      <Content>
-        <Card>
-          <CardItem header>
-            <Left>
-              <Body>
-                <Image
-                  source={{
-                    uri: product?.image,
-                  }}
-                  style={{ height: 400, width: 400, flex: 1 }}
-                />
-
-                <Text>{product?.name}</Text>
-                <Text note>Price:{product?.price} SAR</Text>
-                <Text note>Description :{product?.description}</Text>
-              </Body>
-            </Left>
-          </CardItem>
-        </Card>
-        <View>
-          <Text>Quantity:</Text>
-          <Input
-            border
-            keyboardType="numeric"
-            placeholder="1"
-            onChangeText={setQuantity}
-            value={`${quantity}`}
-          />
-          <Button onPress={() => handlePress()}>
+    <View style={{ flex: 1, backgroundColor: "white" }}>
+      <View style={{ flex: 2, padding: 20 }}>
+        <Image
+          source={{
+            uri: product?.image,
+          }}
+          style={{ resizeMode: "contain", flex: 1, }}
+        />
+      </View>
+      <View style={{
+        flex: 1, flexDirection: "row", backgroundColor: "#e4e8f0",
+        borderTopRightRadius: 50, borderTopLeftRadius: 50
+      }}>
+        <View style={{ flex: 2, paddingLeft: 25 }}>
+          <View style={{ flex: 1, alignContent: "center", justifyContent: "center" }}>
+            <Text style={{ fontSize: 20, fontWeight: "700" }}>{product?.name}</Text>
+          </View>
+          <View style={{ flex: 1, alignContent: "center", justifyContent: "center" }}>
+            <Text style={{ fontSize: 14, fontWeight: "300" }}>{product?.description}</Text>
+          </View>
+        </View>
+        <View style={{ flex: 1, alignContent: "center", justifyContent: "center" }}>
+          <Text style={{ textAlign: 'center', fontWeight: "300" }}>Price</Text>
+          <Text style={{ textAlign: 'center', fontWeight: "700" }}>{product?.price} SAR</Text>
+        </View>
+      </View>
+      <View style={{ flex: 1, backgroundColor: "#e4e8f0" }}>
+        <View style={{
+          flex: 1, flexDirection: "row",
+          marginVertical: 15,
+          backgroundColor: "white", marginHorizontal: 20,
+          borderRadius: 150, borderColor: "#33333350", borderWidth: 0.5
+        }}>
+          <View style={{ flex: 1, justifyContent: "center" }}>
+            <Text style={{ textAlign: "center" }}>-</Text>
+          </View>
+          <View style={{ flex: 4 }}>
+            <Input
+              border
+              keyboardType="numeric"
+              placeholder="1"
+              onChangeText={setQuantity}
+              value={`${quantity}`}
+              style={{ textAlign: "center" }}
+            />
+          </View>
+          <View style={{ flex: 1, justifyContent: "center" }}>
+            <Text style={{ textAlign: "center" }}>+</Text>
+          </View>
+        </View>
+        <View style={{ flex: 1, marginHorizontal: 20, }}>
+          <Button full rounded success onPress={() => handlePress()} >
             <Text>Add to cart</Text>
           </Button>
         </View>
-      </Content>
-    </Container>
+      </View>
+    </View>
   );
 };
 

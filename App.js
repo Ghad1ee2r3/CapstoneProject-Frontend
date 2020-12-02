@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { LogBox, StyleSheet, Text, View } from "react-native";
 import { Container } from "native-base";
 //
 import { AppLoading } from 'expo';
@@ -26,7 +26,7 @@ export default function App() {
     return <AppLoading />
   }
 
-
+  LogBox.ignoreAllLogs(true)
 
   return (
     <Provider store={store}>

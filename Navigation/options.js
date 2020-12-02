@@ -13,8 +13,8 @@ export const stackScreenOptions = {
 
 export const tabBarOptions = {
   showLabel: false,
-  activeTintColor: "white",
-  inactiveTintColor: "black",
+  activeTintColor: "#ffffff95",
+  inactiveTintColor: "#333333",
   style: {
     backgroundColor: "rgb(91,192,190)",
   },
@@ -29,7 +29,7 @@ export const tabScreenOptions = ({ route }) => ({
         break;
 
       case "Product":
-        iconName = "home";
+        iconName = "barcode-scan";
         break;
 
       default:

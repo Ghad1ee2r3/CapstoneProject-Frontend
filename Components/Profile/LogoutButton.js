@@ -5,7 +5,7 @@ import { logout } from "../../redux/actions";
 //styles
 import styles from "./styles";
 const LogoutButton = ({ user, logout }) => (
-  <Button style={styles.logoutButton} onPress={logout}>
+  <Button style={styles.logoutButton} onPress={logout} full rounded danger>
     <Text>Logout</Text>
   </Button>
 );

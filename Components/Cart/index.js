@@ -10,6 +10,11 @@ import {
   CardItem,
   Container,
   Button,
+  View,
+  List,
+  ListItem,
+  Thumbnail,
+  Right,
 } from "native-base";
 
 import { postBill } from "../../redux/actions";
@@ -46,37 +51,61 @@ const Cart = ({ cart, navigation, postBill }) => {
   };
 
   return (
-    <Container>
-      <Content>
-        <Card style={{ flex: 0 }}>
-          <CardItem header>
-            <Left>
-              <Body>
-                {items.length ? (
-                  <>
-                    {itemCards}
-                    <Button onPress={() => handleCheckout()}>
-                      <Text> checkout</Text>
-                    </Button>
-                  </>
-                ) : (
-                    <Text>Cart is empty</Text>
-                  )}
-              </Body>
-            </Left>
-          </CardItem>
-          <CardItem header>
-            <Left>
-              <Body>
-                <Text>Total: {cart.total}</Text>
-                {/* <Text>Subtotal: {cart.subtotal}</Text> */}
-                <Text>Tax: {cart.tax}</Text>
-              </Body>
-            </Left>
-          </CardItem>
-        </Card>
-      </Content>
-    </Container>
+    <View style={{ flex: 1 }} >
+      <View style={{ flex: 3, backgroundColor: "blue" }}>
+        <View style={{ backgroundColor: "white", margin: 15, borderRadius: 15, }}>
+
+          <List avatar>
+            {items.length ? (
+              <>
+                {itemCards}
+                <Button success onPress={() => handleCheckout()}>
+                  <Text> checkout</Text>
+                </Button>
+              </>
+            ) : (
+                <Text>Cart is empty</Text>
+              )}
+          </List>
+        </View>
+      </View>
+      <View style={{ flex: 1, justifyContent: "center", marginHorizontal: 25 }}>
+        <Button full rounded success onPress={() => handleCheckout()}>
+          <Text> checkout</Text>
+        </Button>
+      </View>
+    </View>
+    //   <Container>
+    //   <Content>
+    //     <Card style={{ flex: 0 }}>
+    //       <CardItem header>
+    //         <Left>
+    //           <Body>
+    //             {items.length ? (
+    //               <>
+    //                 {itemCards}
+    //                 <Button onPress={() => handleCheckout()}>
+    //                   <Text> checkout</Text>
+    //                 </Button>
+    //               </>
+    //             ) : (
+    //                 <Text>Cart is empty</Text>
+    //               )}
+    //           </Body>
+    //         </Left>
+    //       </CardItem>
+    //       <CardItem header>
+    //         <Left>
+    //           <Body>
+    //             <Text>Total: {cart.total}</Text>
+    //             {/* <Text>Subtotal: {cart.subtotal}</Text> */}
+    //             <Text>Tax: {cart.tax}</Text>
+    //           </Body>
+    //         </Left>
+    //       </CardItem>
+    //     </Card>
+    //   </Content>
+    // </Container>
   );
 };
 const mapStateToProps = ({ cart }) => ({
