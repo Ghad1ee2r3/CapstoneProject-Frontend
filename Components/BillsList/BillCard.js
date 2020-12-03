@@ -12,16 +12,50 @@ import { StyleSheet, View } from "react-native";
 
 const BillCard = ({ bill, navigation }) => {
   return (
-    <ListItem
-      onPress={() => navigation.navigate("BillDetail", { bill: bill })}
-    >
+    <ListItem onPress={() => navigation.navigate("BillDetail", { bill: bill })}>
       <View style={styles.container}>
-        <CardItem header>
-          <Body>
-            <Text note>Order number : {bill.id}</Text>
-            <Text note>From :{bill.store.name}</Text>
-            <Text note>Date:{bill.date.slice(0, 10)} </Text>
-            <Text note>total :{bill.total}</Text>
+        <CardItem header style={{ backgroundColor: "#1eb2cc" }}>
+          <Body style={{ backgroundColor: "#1eb2cc" }}>
+            <Text
+              style={{
+                color: "#fff",
+                fontWeight: "500",
+                fontSize: 16,
+                marginVertical: 4,
+              }}
+            >
+              Bill Number : {bill.id}
+            </Text>
+            <Text
+              style={{
+                color: "#fff",
+                fontWeight: "500",
+                fontSize: 12,
+                marginVertical: 4,
+              }}
+            >
+              From : {bill.store.name}
+            </Text>
+            <Text
+              style={{
+                color: "#fff",
+                fontWeight: "500",
+                fontSize: 12,
+                marginVertical: 4,
+              }}
+            >
+              Date : {bill.date.slice(0, 10)}{" "}
+            </Text>
+            <Text
+              style={{
+                color: "#fff",
+                fontWeight: "500",
+                fontSize: 12,
+                marginVertical: 4,
+              }}
+            >
+              Total : {bill.total}
+            </Text>
           </Body>
         </CardItem>
       </View>
@@ -30,7 +64,7 @@ const BillCard = ({ bill, navigation }) => {
 };
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "rgba(255,255,255,0.96)",
+    backgroundColor: "#1eb2cc",
     borderColor: "#000000",
     opacity: 0.9,
     shadowColor: "rgba(0,0,0,1)",
@@ -43,10 +77,9 @@ const styles = StyleSheet.create({
     shadowRadius: 0,
     borderRadius: 10,
     width: 355,
-    height: 112,
+    height: 135,
     // marginRight: 20,
   },
 });
-
 
 export default BillCard;
