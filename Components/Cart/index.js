@@ -19,19 +19,25 @@ import {
 
 import { postBill } from "../../redux/actions";
 
-import emptyCartImg from "../../assets/empty_cart.png"
+import emptyCartImg from "../../assets/empty_cart.png";
 import { Dimensions, Image } from "react-native";
 
-const Cart = ({ cart, navigation, postBill }) => {
+const Cart = ({ cart, navigation, postBill, stores }) => {
   let items = cart.items;
+  const storeBarcode = items.map((item) => item.storeBarcode)[0];
+
+  const storeobj = stores.find((item) => item.uuid === storeBarcode);
+
   const itemCards = items.map((item) => {
     console.log(`${item.id} ${item.name}`);
     return (
       <ItemCard key={`${item.product.name} ${item.product.id}`} item={item} />
-    )
+    );
   });
 
   const itemsCart = items.map((item) => ({
+    //name: item.product.name,
+    // price: item.product.price,
     storeproduct: item.product.id,
     qty: item.quantity,
   }));
@@ -39,15 +45,17 @@ const Cart = ({ cart, navigation, postBill }) => {
 
   console.log(itemsCart);
   //return storeBarcode (from URL take store Barcode then save inside items of  cart)
-  const storeBarcode = items.map((item) => item.storeBarcode)[0];
-
+  //const storeBarcode = items.map((item) => item.storeBarcode)[0];
+  //let name = storeobj.name;
+  // let store = { uuid: storeBarcode, name: name };
   let bill = {
     total: cart.total,
     tax: cart.tax,
     store: storeBarcode,
     items: itemsCart,
   };
-  var myWidth = Dimensions.get('window').width;
+  console.log(bill);
+  var myWidth = Dimensions.get("window").width;
 
   const handleCheckout = () => {
     const new_bill = postBill(bill);
@@ -55,57 +63,80 @@ const Cart = ({ cart, navigation, postBill }) => {
   };
 
   return (
-    <View style={{ flex: 1 }} >
-
+    <View style={{ flex: 1 }}>
       {items.length ? (
         <>
-          <View style={{ flex: 3, }}>
-            <View style={{
-              backgroundColor: "white", margin: 15,
-              borderRadius: 15,
-              shadowColor: "#000",
-              shadowOffset: {
-                width: 0,
-                height: 2,
-              },
-              shadowOpacity: 0.25,
-              shadowRadius: 3.84,
+          <View style={{ flex: 3 }}>
+            <View
+              style={{
+                backgroundColor: "white",
+                margin: 15,
+                borderRadius: 15,
+                shadowColor: "#000",
+                shadowOffset: {
+                  width: 0,
+                  height: 2,
+                },
+                shadowOpacity: 0.25,
+                shadowRadius: 3.84,
 
-              elevation: 5,
-            }}>
-
-              <List avatar>
-                {itemCards}
-              </List>
-              <View style={{ right: 0, backgroundColor: "#fff", borderColor: "white", height: 50, justifyContent: "center", paddingHorizontal: 15 }}>
-                <Text style={{ color: "#000", textAlign: "right" }}> TOTAL {cart.total} <Text style={{ color: "#1eb2cc" }}>SAR</Text></Text>
+                elevation: 5,
+              }}
+            >
+              <List avatar>{itemCards}</List>
+              <View
+                style={{
+                  right: 0,
+                  backgroundColor: "#fff",
+                  borderColor: "white",
+                  height: 50,
+                  justifyContent: "center",
+                  paddingHorizontal: 15,
+                }}
+              >
+                <Text style={{ color: "#000", textAlign: "right" }}>
+                  {" "}
+                  TOTAL {cart.total}{" "}
+                  <Text style={{ color: "#1eb2cc" }}>SAR</Text>
+                </Text>
               </View>
             </View>
           </View>
-          <View style={{ flex: 1, justifyContent: "center", marginHorizontal: 25 }}>
+          <View
+            style={{ flex: 1, justifyContent: "center", marginHorizontal: 25 }}
+          >
             <Button full rounded success onPress={() => handleCheckout()}>
               <Text> checkout</Text>
             </Button>
           </View>
         </>
       ) : (
-          <>
-            <View style={{ flex: 3, backgroundColor: "white" }}>
-              <View style={{
+        <>
+          <View style={{ flex: 3, backgroundColor: "white" }}>
+            <View
+              style={{
                 flex: 2,
-                padding: 20, justifyContent: "center", alignItems: "center"
-              }}>
-                <Image style={{ height: "80%", width: (myWidth * 0.8) }} source={emptyCartImg} />
-              </View>
-              <View style={{ flex: 1, justifyContent: "center" }}>
-                <Text style={{ fontSize: 26, fontWeight: "700", textAlign: "center" }}>Cart is empty</Text>
-              </View>
+                padding: 20,
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Image
+                style={{ height: "80%", width: myWidth * 0.8 }}
+                source={emptyCartImg}
+              />
             </View>
-            <View style={{ flex: 1, backgroundColor: "white" }}></View>
-          </>
-        )}
-
-
+            <View style={{ flex: 1, justifyContent: "center" }}>
+              <Text
+                style={{ fontSize: 26, fontWeight: "700", textAlign: "center" }}
+              >
+                Cart is empty
+              </Text>
+            </View>
+          </View>
+          <View style={{ flex: 1, backgroundColor: "white" }}></View>
+        </>
+      )}
     </View>
     //   <Container>
     //   <Content>
@@ -140,8 +171,9 @@ const Cart = ({ cart, navigation, postBill }) => {
     // </Container>
   );
 };
-const mapStateToProps = ({ cart }) => ({
+const mapStateToProps = ({ cart, stores }) => ({
   cart,
+  stores,
 });
 
 const mapDispatchToProps = (dispatch) => {

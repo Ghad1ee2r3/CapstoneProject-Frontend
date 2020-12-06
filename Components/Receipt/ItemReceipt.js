@@ -12,16 +12,18 @@ import {
 } from "native-base";
 
 const ItemReceipt = ({ item }) => {
+  console.log("#################################3");
+  console.log(item);
   return (
     <ListItem thumbnail key={item.id}>
       <Body>
         <Text>{item.name}</Text>
       </Body>
       <Right>
-        <Text style={{textAlign:"center"}}>{item.qty}  </Text>
+        <Text style={{ textAlign: "center" }}>{item.qty} </Text>
       </Right>
       <Right>
-        <Text style={{textAlign:"center"}}>{item.price}  SAR</Text>
+        <Text style={{ textAlign: "center" }}>{item.price} SAR</Text>
       </Right>
     </ListItem>
     // <Card key={item.barcode}>
