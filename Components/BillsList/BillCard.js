@@ -12,15 +12,13 @@ import { StyleSheet, View } from "react-native";
 
 const BillCard = ({ bill, navigation }) => {
   return (
-    <ListItem
-      onPress={() => navigation.navigate("BillDetail", { bill: bill })}
-    >
+    <ListItem onPress={() => navigation.navigate("BillDetail", { bill: bill })}>
       <View style={styles.container}>
         <CardItem header>
           <Body>
             <Text note>Order number : {bill.id}</Text>
             <Text note>From :{bill.store.name}</Text>
-            <Text note>Date:{bill.date.slice(0, 10)} </Text>
+            {/* <Text note>Date:{bill.date.slice(0, 10)} </Text> */}
             <Text note>total :{bill.total}</Text>
           </Body>
         </CardItem>
@@ -47,6 +45,5 @@ const styles = StyleSheet.create({
     // marginRight: 20,
   },
 });
-
 
 export default BillCard;

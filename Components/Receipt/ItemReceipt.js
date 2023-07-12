@@ -13,15 +13,15 @@ import {
 
 const ItemReceipt = ({ item }) => {
   return (
-    <ListItem thumbnail key={item.id}>
+    <ListItem thumbnail key={item.product.id}>
       <Body>
-        <Text>{item.name}</Text>
+        <Text>{item.product.name}</Text>
       </Body>
       <Right>
-        <Text style={{textAlign:"center"}}>{item.qty}  </Text>
+        <Text style={{ textAlign: "center" }}>{item.quantity} </Text>
       </Right>
       <Right>
-        <Text style={{textAlign:"center"}}>{item.price}  SAR</Text>
+        <Text style={{ textAlign: "center" }}>{item.product.price} SAR</Text>
       </Right>
     </ListItem>
     // <Card key={item.barcode}>
